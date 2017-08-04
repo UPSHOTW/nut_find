@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/border">
+
+        <ImageButton
+            android:id="@+id/mImgBack"
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/border"
+            android:src="@mipmap/img_actionbar_back" />
+
+        <TextView
+            android:id="@+id/mTxtMyFriends"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/myfriends"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+        <TextView
+            android:id="@+id/mTxtAdd"
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:gravity="center"
+            android:text="@string/add"
+            android:textSize="36sp"
+            android:textStyle="normal"
+            android:layout_alignTop="@+id/mTxtMyFriends"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:background="@drawable/border"
+        android:divider="@drawable/shape"
+        android:showDividers="middle">
+
+        <ImageView
+            android:id="@+id/mImgUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_add_friends" />
+
+        <TextView
+            android:id="@+id/mTxtUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/newfriends"
+            android:layout_marginLeft="21dp"
+            android:layout_marginStart="21dp"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/mImgUser"
+            android:layout_toEndOf="@+id/mImgUser" />
+
+    </RelativeLayout>
+
+</LinearLayout>

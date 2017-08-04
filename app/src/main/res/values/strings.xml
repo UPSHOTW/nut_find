@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">自在找</string>
+    <string name="shopping">官方商店</string>
+    <string name="disturb">防丢</string>
+    <string name="more">更多</string>
+    <string name="map">定位</string>
+    <string name="my">我的</string>
+    <string name="username">用户名</string>
+    <string name="myfriends">我的好友</string>
+    <string name="disturbsetting">防丢勿扰设置</string>
+    <string name="story">用户故事</string>
+    <string name="opinion">意见反馈</string>
+    <string name="about">关于我们</string>
+    <string name="share">分享自在找</string>
+    <string name="question">使用说明</string>
+    <string name="add">+</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="personal">个人资料</string>
+    <string name="myLocation">我的位置</string>
+    <string name="check">关闭后,好友将无法查看你的位置</string>
+    <string name="sex">性别</string>
+    <string name="email">邮箱</string>
+    <string name="unbound">未绑定</string>
+    <string name="esc">退出登录</string>
+    <string name="newfriends">新的好友</string>
+    <string name="friendsadd">添加</string>
+    <string name="addfriends">添加好友</string>
+    <string name="boundbluetooth">绑定蓝牙防丢器</string>
+    <string name="jurisdiction">防丢提醒权限设置</string>
+    <string name="dormant">休眠时段</string>
+    <string name="area">勿扰区域</string>
+    <string name="areaExplain">选择信任wifi，当手机连接该wifi时App会进入勿扰区域，手机和防丢器都不会再有提醒；</string>
+    <string name="home">家</string>
+    <string name="addwifi">点击添加wifi</string>
+    <string name="company">公司</string>
+    <string name="other">其他</string>
+    <string name="dormancy">休眠时段里，手机和防丢器都不会有提醒</string>
+    <string name="message">通知中心</string>
+    <string name="equipmentname">设备名称</string>
+    <string name="linktime">连接时间</string>
+    <string name="sign">让寻找更简单</string>
+    <string name="phoneNum">手机号码</string>
+    <string name="pwd">密码</string>
+    <string name="login">登录</string>
+    <string name="forgot">忘记密码</string>
+    <string name="register">立即注册</string>
+    <string name="otherLogin">其他账号登录</string>
+</resources>

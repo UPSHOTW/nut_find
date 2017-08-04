@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="60sp"
+            android:layout_height="60sp"
+            android:gravity="center"
+            android:text="@string/add"
+            android:textSize="36sp"
+            android:textStyle="normal" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/map"
+            android:textColor="@color/black"
+            android:textSize="22sp" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/bmapView"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:clickable="true" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true">
+
+            <Button
+                android:id="@+id/mBtnMapLocation"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@mipmap/img_default_pic" />
+
+            <Button
+                android:id="@+id/mBtnAddFriends"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginLeft="13dp"
+                android:background="@drawable/button_shape_circle"
+                android:text="@string/add"
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:gravity="center"
+                android:layout_marginStart="13dp"
+                android:layout_alignParentTop="true"
+                android:layout_toRightOf="@+id/mBtnMapLocation"
+                android:layout_toEndOf="@+id/mBtnMapLocation" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+</LinearLayout>

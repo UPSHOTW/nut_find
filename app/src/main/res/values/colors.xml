@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black">#000</color>
+    <color name="tab_normal">#c5c9d0</color>
+    <color name="white">#FFFF</color>
+    <color name="tab_selected">#7da97d</color>
+    <color name="reseda">#7da97d</color>
+    <color name="gray">#d0d0d1</color>
+
+</resources>
