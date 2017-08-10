@@ -104,4 +104,25 @@
     <string name="txtEsc">退出</string>
     <string name="connecting">连接中...</string>
     <string name="distance">所在位置</string>
+    <string name="timeout">连接超时</string>
+    <string name="can">您可以：</string>
+    <string name="can_first">·关闭再开启手机蓝牙；</string>
+    <string name="can_second">·确保防丢器已开机（有些防丢器需要按键开机）；</string>
+    <string name="can_third">·将手机贴近防丢器（再10厘米距离内）；</string>
+    <string name="again">再次连接</string>
+    <string name="article">请输入物品名字（例如：钥匙、钱包）</string>
+    <string name="key">钥匙</string>
+    <string name="wallet">钱包</string>
+    <string name="laptop">笔记本电脑</string>
+    <string name="suitcase">旅行箱</string>
+    <string name="haversack">挎包</string>
+    <string name="bound_succeed">绑定成功</string>
+    <string name="open_jurisdiction">防丢提醒功能需要APP持续运行，请开启后台运行权限。</string>
+    <string name="got_it">知道了</string>
+    <string name="open">立即开启</string>
+    <string name="bound_state">连接状态</string>
+    <string name="lossstatement">声明丢失</string>
+    <string name="remind">手机提醒</string>
+    <string name="bothway">双向防丢</string>
+    <string name="expect">更多精彩，敬请期待！</string>
 </resources>
