@@ -16,7 +16,7 @@
         android:textColor="@drawable/tad_menu_txt"
         android:focusable="true"
         android:gravity="center_horizontal"
-        android:text="防丢"
+        android:text="@string/disturb"
 
         android:textSize="14sp" />
 

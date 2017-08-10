@@ -38,7 +38,7 @@
             </intent-filter>
 
         </activity>
-        <activity android:name=".fragment.MainTab"/>
+        <activity android:name=".activity.MainTab" />
         <activity android:name=".activity.ActivityUser" />
         <activity android:name=".activity.ActivityDisturbExist" />
         <activity android:name=".activity.ActivityFriends" />
@@ -49,8 +49,17 @@
         <activity android:name=".activity.ActivityMoreQuestion" />
         <activity android:name=".activity.ActivityMoreStory" />
         <activity android:name=".activity.ActivityMoreShopping" />
-        <activity android:name=".activity.ActivityMoreDisturb"/>
-        <activity android:name=".activity.ActivityLogin"/>
+        <activity android:name=".activity.ActivityLogin" />
+        <activity android:name=".activity.ActivityRegister" />
+        <activity android:name=".activity.MoreDisturbActivity" />
+        <activity android:name=".activity.MoreAreaActivity" />
+        <activity android:name=".activity.MoreDormancyActivity" />
+        <activity android:name=".activity.ActivityForget" />
+        <activity android:name=".activity.ActivityMoreUserEmail" />
+        <activity android:name=".activity.ActivityMoreUserPhone" />
+        <activity android:name=".activity.ActivityBoundExplain"/>
+        <activity android:name=".activity.ActivityFriendsAddBound"/>
+        <activity android:name=".activity.ActivityBoundFound"/>
 
         <service
             android:name="com.baidu.location.f"

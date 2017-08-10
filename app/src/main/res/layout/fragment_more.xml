@@ -53,7 +53,11 @@
         android:background="@drawable/border"
         android:divider="@drawable/shape"
         android:showDividers="middle">
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
         <ImageView
             android:id="@+id/mImgUser"
             android:layout_width="wrap_content"
@@ -61,6 +65,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
             android:src="@mipmap/img_default_pic" />
 
         <TextView
@@ -93,7 +98,11 @@
         android:background="@drawable/border"
         android:divider="@drawable/shape"
         android:showDividers="middle">
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
         <ImageView
             android:id="@+id/imgFriends"
             android:layout_width="wrap_content"
@@ -101,6 +110,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
             android:src="@mipmap/more_buddy_list" />
 
         <TextView
@@ -123,14 +133,22 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
-
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/black" />
     <RelativeLayout
         android:id="@+id/rltDisturb"
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="36dp"
         android:layout_marginTop="15sp"
         android:background="@drawable/border">
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
         <ImageView
             android:id="@+id/imgDisturb"
             android:layout_width="wrap_content"
@@ -138,6 +156,7 @@
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
             android:src="@mipmap/more_disturb" />
 
         <TextView
@@ -160,13 +179,46 @@
             android:layout_alignParentRight="true"
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_marginTop="0dp"
+        android:background="@color/black" />
+    <!--在后台写item-->
+    <!--<LinearLayout
+        android:id="@+id/more_list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_marginTop="15sp"
+        android:background="@drawable/border"
+        android:orientation="vertical">
+        <View
+            android:layout_marginTop="0dp"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="#eaedee"/>
+    <com.maiml.library.BaseItemLayout
+        android:id="@+id/layout_moreitem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.maiml.library.BaseItemLayout>
 
+    </LinearLayout>-->
+
+
+    <!--在布局中写item-->
     <LinearLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_marginTop="15sp"
         android:background="@drawable/border"
         android:orientation="vertical">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
 
         <RelativeLayout
             android:id="@+id/rltQuestion"
@@ -182,6 +234,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:src="@mipmap/more_question" />
 
             <TextView
@@ -206,10 +259,17 @@
                 android:src="@mipmap/ic_web_next" />
         </RelativeLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
+
         <RelativeLayout
             android:id="@+id/rltStory"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -220,6 +280,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:src="@mipmap/more_nut_story" />
 
             <TextView
@@ -239,11 +300,16 @@
                 android:layout_alignParentRight="true"
                 android:src="@mipmap/ic_web_next" />
         </RelativeLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
         <RelativeLayout
             android:id="@+id/rltShopping"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -254,6 +320,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:src="@mipmap/more_shopping" />
 
             <TextView
@@ -273,11 +340,16 @@
                 android:layout_alignParentRight="true"
                 android:src="@mipmap/ic_web_next" />
         </RelativeLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
         <RelativeLayout
             android:id="@+id/rltOpinion"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -288,6 +360,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:src="@mipmap/more_opinion" />
 
             <TextView
@@ -307,11 +380,16 @@
                 android:layout_alignParentRight="true"
                 android:src="@mipmap/ic_web_next" />
         </RelativeLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
         <RelativeLayout
             android:id="@+id/rltAbout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -322,6 +400,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:src="@mipmap/more_about_us" />
 
             <TextView
@@ -341,11 +420,16 @@
                 android:layout_alignParentRight="true"
                 android:src="@mipmap/ic_web_next" />
         </RelativeLayout>
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
         <RelativeLayout
             android:id="@+id/rltShare"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="36dp"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -356,6 +440,7 @@
                 android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
                 android:src="@mipmap/more_share" />
 
             <TextView
@@ -377,40 +462,4 @@
         </RelativeLayout>
 
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="38dp"
-        android:layout_marginTop="15sp"
-        android:background="@drawable/border">
-
-        <ImageView
-            android:id="@+id/imgDisturb"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:src="@mipmap/more_disturb" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_gravity="center"
-            android:layout_marginLeft="17dp"
-            android:layout_marginStart="17dp"
-            android:layout_toEndOf="@+id/imgDisturb"
-            android:layout_toRightOf="@+id/imgDisturb"
-            android:text="@string/disturbsetting" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_web_next"
-            android:layout_alignTop="@+id/imgDisturb"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
-    </RelativeLayout>
-
 </LinearLayout>

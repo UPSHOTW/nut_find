@@ -1,4 +1,4 @@
-package com.example.make1.find.fragment;
+package com.example.make1.find.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
@@ -7,12 +7,16 @@ import android.view.Window;
 import android.widget.LinearLayout;
 
 import com.example.make1.find.R;
+import com.example.make1.find.fragment.FragmentDisturb;
+import com.example.make1.find.fragment.FragmentMap;
+import com.example.make1.find.fragment.FragmentMore;
+import com.example.make1.find.fragment.MainTabFragmentHost;
 
 
 public class MainTab extends FragmentActivity {
 	private String TAG = MainTab.class.getName();
 
-	public TabFragmentHost mTabHost;
+	public MainTabFragmentHost mTabHost;
 	// 标签
 	private String[] TabTag = { "tab1", "tab2", "tab3" };
 	// 自定义tab布局显示文本和顶部的图片
@@ -42,7 +46,7 @@ public class MainTab extends FragmentActivity {
 	private void setupView() {
 
 		// 实例化framentTabHost
-		mTabHost = (TabFragmentHost) findViewById(android.R.id.tabhost);
+		mTabHost = (MainTabFragmentHost) findViewById(android.R.id.tabhost);
 		mTabHost.setup(this, getSupportFragmentManager(),
 				android.R.id.tabcontent);
 

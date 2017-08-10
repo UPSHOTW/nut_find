@@ -7,7 +7,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.make1.find"
-        minSdkVersion 14
+        minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -35,6 +35,6 @@ dependencies {
     compile files('libs/baidumapapi_base_v4_3_0.jar')
     compile 'com.jakewharton:butterknife:8.7.0'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.7.0'
-
-
+    compile 'com.maiml:baseitemlayoutlibrary:2.2.3'
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
 }

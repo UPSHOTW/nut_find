@@ -9,15 +9,16 @@
         android:layout_height="60dp">
 
         <TextView
+            android:id="@+id/mTxtAdd"
             android:layout_width="60sp"
             android:layout_height="60sp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:gravity="center"
             android:text="@string/add"
             android:textSize="36sp"
-            android:textStyle="normal"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:textStyle="normal" />
 
         <TextView
             android:layout_width="match_parent"
@@ -32,13 +33,56 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="260dp">
+        android:layout_height="260dp"
+        android:orientation="horizontal">
 
-        <ImageView
-            android:id="@+id/mImgCompanion"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            />
+            android:layout_height="match_parent">
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent" />
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="35dp"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#33000000">
+
+                <TextView
+                    android:id="@+id/mTxtImgTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="@string/imgTitle"
+                    android:textColor="@color/white" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <View
+                        android:id="@+id/dot_first"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:gravity="center"
+                        android:background="@drawable/dot_focused" />
+                    <View
+                        android:id="@+id/dot_second"
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:gravity="center"
+                        android:background="@drawable/dot_normal" />
+                </LinearLayout>
+            </LinearLayout>
+        </FrameLayout>
     </LinearLayout>
 
     <RelativeLayout
@@ -49,13 +93,13 @@
             android:id="@+id/mBtnShopping"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:background="@drawable/button_shape_small"
-            android:text="@string/shopping"
-            android:textColor="@color/white"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="60dp" />
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:background="@drawable/button_shape_small"
+            android:text="@string/shopping"
+            android:textColor="@color/white" />
 
     </RelativeLayout>
 </LinearLayout>

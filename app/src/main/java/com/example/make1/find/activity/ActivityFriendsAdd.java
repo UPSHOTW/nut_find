@@ -44,7 +44,6 @@ public class ActivityFriendsAdd extends AppCompatActivity implements View.OnClic
                 intent =new Intent(ActivityFriendsAdd.this,ActivityFriends.class);
                 startActivity(intent);
                 break;
-
             default:
         }
     }

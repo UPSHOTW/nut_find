@@ -10,6 +10,7 @@
         android:gravity="center">
 
         <TextView
+            android:id="@+id/txtToBound"
             android:layout_width="60sp"
             android:layout_height="60sp"
             android:gravity="center"
@@ -38,33 +39,107 @@
             android:clickable="true" />
 
         <RelativeLayout
+            android:id="@+id/rltBut"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true">
 
-            <Button
+            <ImageView
                 android:id="@+id/mBtnMapLocation"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:background="@mipmap/img_default_pic" />
+                android:background="@drawable/attrs_white"
+                android:padding="2dp"
+                android:src="@mipmap/img_default_pic" />
 
             <Button
                 android:id="@+id/mBtnAddFriends"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
+                android:layout_alignParentTop="true"
+                android:layout_gravity="center_vertical"
                 android:layout_marginLeft="13dp"
+                android:layout_marginStart="13dp"
+                android:layout_toEndOf="@+id/mBtnMapLocation"
+                android:layout_toRightOf="@+id/mBtnMapLocation"
                 android:background="@drawable/button_shape_circle"
+                android:gravity="center"
                 android:text="@string/add"
                 android:textColor="@color/white"
-                android:textSize="30sp"
-                android:gravity="center"
-                android:layout_marginStart="13dp"
-                android:layout_alignParentTop="true"
-                android:layout_toRightOf="@+id/mBtnMapLocation"
-                android:layout_toEndOf="@+id/mBtnMapLocation" />
+                android:textSize="24dp" />
         </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rltRecord"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="-100dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/viewup"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="0dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/mTxtUsername"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/viewup"
+            android:layout_alignStart="@+id/viewup"
+            android:layout_below="@+id/viewup"
+            android:hint="@string/username"
+            android:textColor="@color/black"
+            android:textSize="22dp" />
+
+        <ImageView
+            android:id="@+id/imgRefurbish"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_below="@+id/mTxtUsername"
+            android:layout_marginEnd="16dp"
+            android:layout_marginRight="16dp"
+            android:src="@mipmap/ic_location_refresh" />
+
+        <TextView
+            android:id="@+id/txtTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/imgRefurbish"
+            android:layout_alignLeft="@+id/mTxtUsername"
+            android:layout_alignStart="@+id/mTxtUsername"
+            android:hint="@string/linktime"
+            android:textColor="@color/black" />
+
+
+        <View
+            android:id="@+id/viewdown"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_alignBottom="@+id/txtTime"
+            android:layout_marginLeft="10dp"
+            android:background="@color/black" />
+
+        <TextView
+            android:id="@+id/textRecord"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/viewdown"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/record"
+            android:textColor="@color/black" />
+
     </RelativeLayout>
 
 </LinearLayout>

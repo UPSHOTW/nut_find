@@ -13,7 +13,7 @@ import java.util.List;
 public class LoginAdapter extends FragmentStatePagerAdapter {
     private List<Fragment> list;
     private Context context;
-    private String[] titles={"手机号码","邮箱"};
+    private String[] titles={"手机号","邮箱"};
     public LoginAdapter(FragmentManager fm, List<Fragment> list, Context context) {
         super(fm);
         this.list = list;

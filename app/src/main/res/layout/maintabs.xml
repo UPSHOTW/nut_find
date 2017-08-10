@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.example.make1.find.fragment.TabFragmentHost xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.make1.find.fragment.MainTabFragmentHost xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@android:id/tabhost"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
@@ -30,4 +30,4 @@
             android:layout_height="wrap_content"></TabWidget>
     </LinearLayout>
 
-</com.example.make1.find.fragment.TabFragmentHost>
+</com.example.make1.find.fragment.MainTabFragmentHost>

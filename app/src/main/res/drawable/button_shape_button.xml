@@ -4,7 +4,6 @@
     android:useLevel="false">
     <!--填充颜色-->
     <solid android:color="@color/white" />
-
     <size
         android:width="60dp"
         android:height="60dp" />

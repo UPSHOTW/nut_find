@@ -25,10 +25,6 @@ public class ActivityMoreMessage extends AppCompatActivity implements View.OnCli
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //去掉标题栏（继承自AppCompatActivity时）
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
         setContentView(R.layout.more_message);
         ButterKnife.bind(this);
     }

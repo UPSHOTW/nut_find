@@ -5,11 +5,11 @@
 <solid android:color="@color/white"/>
     <!--设置四个角为弧形-->
     <!--android:radius 弧形的半径-->
-    <corners android:radius="20dp"/>
+    <corners android:radius="100dp"/>
     <!--padding:Button里面的文字与Button边界的间隔-->
     <padding
-        android:bottom="10dp"
+        android:bottom="20dp"
         android:left="30dp"
         android:right="30dp"
-        android:top="10dp"/>
+        android:top="30dp"/>
 </shape>

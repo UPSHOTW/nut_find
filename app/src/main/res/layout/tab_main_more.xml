@@ -15,8 +15,7 @@
         android:focusable="true"
         android:paddingTop="4dip"
         android:gravity="center_horizontal"
-        android:text="更多"
+        android:text="@string/more"
         android:textColor="@drawable/tad_menu_txt"
         android:textSize="14sp" />
-
 </LinearLayout>

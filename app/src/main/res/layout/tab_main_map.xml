@@ -15,7 +15,7 @@
         android:focusable="true"
         android:paddingTop="4dip"
         android:gravity="center_horizontal"
-        android:text="定位"
+        android:text="@string/map"
         android:textColor="@drawable/tad_menu_txt"
         android:textSize="14sp"
         android:textStyle="normal" />
