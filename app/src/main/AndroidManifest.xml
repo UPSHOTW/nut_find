@@ -60,6 +60,7 @@
         <activity android:name=".activity.ActivityBoundExplain"/>
         <activity android:name=".activity.ActivityFriendsAddBound"/>
         <activity android:name=".activity.ActivityBoundFound"/>
+        <activity android:name=".activity.ActivityBoundConnecting"/>
 
         <service
             android:name="com.baidu.location.f"

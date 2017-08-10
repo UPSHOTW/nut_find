@@ -317,6 +317,7 @@
             android:layout_marginTop="60dp"
             android:background="@drawable/button_shape_big"
             android:text="@string/esc"
+            android:onClick="Esc"
             android:textColor="@color/white" />
     </LinearLayout>
 </LinearLayout>

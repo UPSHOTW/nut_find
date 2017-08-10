@@ -35,7 +35,6 @@
         android:layout_width="match_parent"
         android:layout_height="81dp"
         android:background="@drawable/border"
-        android:divider="@drawable/shape"
         android:showDividers="middle">
 
         <ImageView
@@ -72,7 +71,6 @@
         android:layout_width="match_parent"
         android:layout_height="81dp"
         android:background="@drawable/border"
-        android:divider="@drawable/shape"
         android:showDividers="middle">
 
         <ImageView
@@ -107,7 +105,6 @@
         android:layout_width="match_parent"
         android:layout_height="81dp"
         android:background="@drawable/border"
-        android:divider="@drawable/shape"
         android:showDividers="middle">
 
         <ImageView

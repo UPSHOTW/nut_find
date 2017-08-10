@@ -3,16 +3,12 @@ package com.example.make1.find.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 
 import com.example.make1.find.R;
-import com.example.make1.find.adapter.EquipmentAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
-import java.util.StringTokenizer;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -28,66 +24,27 @@ public class ActivityDisturbExist extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        //去掉标题栏（继承自AppCompatActivity时）
-        if (getSupportActionBar() != null) {
-            getSupportActionBar().hide();
-        }
         setContentView(R.layout.disturb_exist);
         ButterKnife.bind(this);
-        //添加数据
-        List<Map<String, Object>> list = getData();
-        //适配器
-        EquipmentAdapter equipmentAdapter = new EquipmentAdapter(this, list);
-        //设置适配器
-        list_equipment.setAdapter(equipmentAdapter);
-        return;
-
+        ArrayList<HashMap<String, Object>> founditem = new ArrayList<HashMap<String, Object>>();
+        HashMap<String, Object> map = new HashMap<String, Object>();
+        map.put("imgEquipment", R.mipmap.ic_add_nut_logo);
+        map.put("txtEquipmentName", "Nut3");
+        map.put("mTxtDistance", "附近");
+        map.put("mTxtLinkTime", "20分钟前");
+        founditem.add(map);
+        SimpleAdapter equipmentitemAdapter = new SimpleAdapter(this, founditem, R.layout.list_equipment, new String[]{
+                "imgEquipment", "txtEquipmentName", "mTxtDistance", "mTxtLinkTime"}, new int[]{R.id.imgEquipment, R.id.txtEquipmentName, R.id.mTxtDistance, R.id.mTxtLinkTime
+        });
+        //添加并显示
+        list_equipment.setAdapter(equipmentitemAdapter);
 
     }
 
-    public List<Map<String, Object>> getData() {
-        List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        for (int i = 0; i < 10; i++) {
-            Map<String, Object> map = new HashMap<String, Object>();
-            map.put("image", R.mipmap.img_logo_null);
-            map.put("imgEquipment", "笔记本电脑");
-            map.put("mTxtEquipment", "40分钟之前");
-            list.add(map);
-        }
-        return list;
+    @Override
+    public void onResume() {
+        super.onResume();
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

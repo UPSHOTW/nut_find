@@ -4,35 +4,51 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imgEquipment"
-            android:layout_width="60sp"
-            android:layout_height="60sp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentTop="true"
-            android:background="@drawable/button_shape_button"
-            android:scaleType="centerInside"
+            android:background="@drawable/button_shape_circle_reseda"
             android:src="@mipmap/img_logo_null" />
 
-        <TextView
-            android:id="@+id/mTxtEquipment"
+        <LinearLayout
+            android:id="@+id/linearLayout2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="21dp"
-            android:layout_marginStart="21dp"
-            android:layout_toEndOf="@+id/imgEquipment"
-            android:layout_toRightOf="@+id/imgEquipment"
-            android:hint="@string/equipmentname" />
+            android:layout_marginLeft="20dp"
+            android:orientation="vertical">
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/txtEquipmentName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/equipmentname" />
+
+            <TextView
+                android:id="@+id/mTxtDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:hint="@string/distance" />
+
+
+        </LinearLayout>
+
+
+    </LinearLayout>
 
     <TextView
         android:id="@+id/mTxtLinkTime"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
         android:hint="@string/linktime" />
 </LinearLayout>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="oval">
+    <!-- 设置边框的大小和颜色 -->
+    <stroke
+        android:width="2dp"
+        android:color="@color/reseda" />
+    <size android:height="42dp"
+        android:width="42dp"/>
+    <!-- 定义圆角弧度 圆的话就是半径 -->
+  <!--  <corners
+        android:bottomLeftRadius="42dp"
+        android:bottomRightRadius="42dp"
+        android:topLeftRadius="42dp"
+        android:topRightRadius="42dp" />-->
+</shape>

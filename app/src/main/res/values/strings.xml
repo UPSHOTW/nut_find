@@ -83,10 +83,25 @@
     <string name="bound">绑定</string>
     <string name="bound_explain">绑定说明</string>
     <string name="search">搜索中</string>
-    <string name="bound_explain_first">1、请将防丢器开机，有按键的防丢器需长安案件3秒以上开机，无按键的防丢器拔出电池绝缘纸即可自动开机。</string>
+    <string name="bound_explain_first">1、请将防丢器开机，有按键的防丢器需长按按键3秒以上开机，无按键的防丢器拔出电池绝缘纸即可自动开机。</string>
     <string name="bound_explain_second">2、绑定时请将防丢器与手机保持10厘米以内的距离。</string>
     <string name="find_nothing">搜索不到防丢器？</string>
     <string name="bound_found">点击下面的搜索防丢器进行绑定</string>
     <string name="equipmentName">Nut3</string>
     <string name="signstrength">信号强度</string>
+    <string name="attention">绑定防丢器注意事项：</string>
+    <string name="attention_first">1、在绑定过程中您需要始终开启蓝牙。</string>
+    <string name="attention_second">2、在绑定过程开始前请将防丢器开机，有按键的防丢器需要长按按键3秒以上开机，无按键的防丢器拔出电池绝缘纸通电后即可自动开机。</string>
+    <string name="attention_third">2、绑定时请将防丢器与手机保持10厘米以内的距离。</string>
+    <string name="operation">搜索不到防丢器操作：</string>
+    <string name="operation_first">1、请重启系统蓝牙、重启手机后再次尝试。</string>
+    <string name="operation_second">2、请检查防丢器电池是否安装正确（正极朝上）。</string>
+    <string name="operation_third">3、请尝试给防丢器换一块新电池。</string>
+    <string name="occupy_hint">防丢器已绑定账号，如有疑问请联系客服</string>
+    <string name="hardwareID">硬件ID：</string>
+    <string name="bound_guide">绑定指南</string>
+    <string name="esc_affirm">退出登录后所有的防丢器将断开连接，再次登录前将无法管理，是否确认退出？</string>
+    <string name="txtEsc">退出</string>
+    <string name="connecting">连接中...</string>
+    <string name="distance">所在位置</string>
 </resources>

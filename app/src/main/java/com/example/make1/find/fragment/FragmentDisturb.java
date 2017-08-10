@@ -29,7 +29,6 @@ import java.util.concurrent.TimeUnit;
 
 public class FragmentDisturb extends Fragment  implements View.OnClickListener{
     private TextView mTxtAdd;
-    private int inageIds[];
     private int imageIds[];
     private String[] titles;
     private ArrayList<ImageView> images;
@@ -53,12 +52,12 @@ public class FragmentDisturb extends Fragment  implements View.OnClickListener{
         //图片ID
         imageIds = new int[]{
                 R.mipmap.a,
-                R.mipmap.b,
+                R.mipmap.b
         };
         //图片标题
         titles = new String[]{
-                "绑定指南",
-                "绑定指南"
+                getString(R.string.bound_guide),
+                getString(R.string.bound_guide)
         };
         //显示的图片
         images = new ArrayList<ImageView>();
@@ -89,18 +88,18 @@ public class FragmentDisturb extends Fragment  implements View.OnClickListener{
                 currentItem = position;
             }
 
-            @Override
-            public void onPageScrolled(int arg0, float arg1, int arg2) {
-                // TODO Auto-generated method stub
+                   @Override
+        public void onPageScrolled(int arg0, float arg1, int arg2) {
+            // TODO Auto-generated method stub
 
-            }
+        }
 
-            @Override
-            public void onPageScrollStateChanged(int arg0) {
-                // TODO Auto-generated method stub
+        @Override
+        public void onPageScrollStateChanged(int arg0) {
+            // TODO Auto-generated method stub
 
-            }
-        });
+        }
+    });
 
         return view;
 
