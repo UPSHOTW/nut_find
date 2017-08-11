@@ -4,31 +4,34 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.SimpleAdapter;
 
 import com.example.make1.find.R;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- * Created by make1 on 2017/8/2.
- * ActivityFriends我的好友页面
+ *
  */
 
-public class ActivityFriends extends AppCompatActivity implements View.OnClickListener {
+public class ActivityDisturbStatment extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.mImgBack)
     ImageView mImgBack;
-    @BindView(R.id.mTxtAdd)
-    TextView mTxtAdd;
+    @BindView(R.id.mRltDisturbArea)
+    RelativeLayout mRltDisturbArea;
     Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.more_friends);
+        setContentView(R.layout.equipment_disturb_statement);
         ButterKnife.bind(this);
     }
 
@@ -36,18 +39,17 @@ public class ActivityFriends extends AppCompatActivity implements View.OnClickLi
     public void onResume() {
         super.onResume();
         mImgBack.setOnClickListener(this);
-        mTxtAdd.setOnClickListener(this);
+        mRltDisturbArea.setOnClickListener(this);
+
     }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.mImgBack:
-                setResult(2);
-                finish();
-                break;
-            case R.id.mTxtAdd:
-                intent = new Intent(ActivityFriends.this, ActivityFriendsAdd.class);
+                intent = new Intent(ActivityDisturbStatment.this,ActivityEquipmentDetails.class);
                 startActivity(intent);
+                break;
+            case R.id.mRltDisturbArea:
                 break;
             default:
         }

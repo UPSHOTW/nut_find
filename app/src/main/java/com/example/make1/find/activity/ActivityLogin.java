@@ -99,7 +99,7 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
                 if (isVisible) {
                     isVisible = false;
                     //动画1
-                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltOther, "translationY", 0F, -140F);
+                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltOther, "translationY", 0F, -150F);
                     //动画2
                     ObjectAnimator oa2 = ObjectAnimator.ofFloat(mRltOtherLogin, "translationY", 0F, -160F);
                     //创建动画集
@@ -114,7 +114,7 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
                 } else {
                     isVisible = true;
                     //动画1
-                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltOther, "translationY", -140F, 0F);
+                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltOther, "translationY", -150F, 0F);
                     //动画2
                     ObjectAnimator oa2 = ObjectAnimator.ofFloat(mRltOtherLogin, "translationY", -160F, 0F);
                     //创建动画集
@@ -128,7 +128,6 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
                     imgOtherUp.setBackgroundResource(R.mipmap.ic_textfield_down);
                 }
                 break;
-
             default:
         }
     }

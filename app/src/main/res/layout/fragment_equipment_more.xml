@@ -5,7 +5,11 @@
     android:orientation="vertical"
     android:background="@color/gray">
     <TextView
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="190dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="@color/white"
         android:text="@string/expect"/>
 </RelativeLayout>

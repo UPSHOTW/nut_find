@@ -18,7 +18,7 @@ public class FragmentEquipmentDisturb extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_equipment_details, container, false);
+        view = inflater.inflate(R.layout.fragment_equipment_disturb, container, false);
         return view;
     }
     @Override
