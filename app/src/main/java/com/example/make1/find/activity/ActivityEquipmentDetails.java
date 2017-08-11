@@ -29,7 +29,7 @@ import android.widget.Toast;
 
 import com.example.make1.find.R;
 import com.example.make1.find.fragment.FragmentEquipmentDetails;
-import com.example.make1.find.fragment.FragmentLogin;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +45,8 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
     TextView mTxtEquipmentname;
     @BindView(R.id.mBtnLossStatement)
     Button mBtnLossStatement;
+    @BindView(R.id.ImgDistance)
+    ImageView ImgDistance;
     private Context mContext;
     Intent intent;
 
@@ -67,6 +69,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         mImgDetailsMore.setOnClickListener(this);
         mImgBack.setOnClickListener(this);
         mBtnLossStatement.setOnClickListener(this);
+        ImgDistance.setOnClickListener(this);
 
     }
 
@@ -91,6 +94,10 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
                 break;
             case R.id.mBtnLossStatement:
                 intent = new Intent(ActivityEquipmentDetails.this,ActivityDisturbStatment.class);
+                startActivity(intent);
+                break;
+            case R.id.ImgDistance:
+                intent = new Intent(ActivityEquipmentDetails.this,ActivityEquipmentLocation.class);
                 startActivity(intent);
                 break;
             default:

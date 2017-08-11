@@ -46,7 +46,7 @@ public class ActivityDisturbStatment extends AppCompatActivity implements View.O
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.mImgBack:
-                intent = new Intent(ActivityDisturbStatment.this,ActivityEquipmentDetails.class);
+                intent = new Intent(ActivityDisturbStatment.this,ActivityEquipmentLocation.class);
                 startActivity(intent);
                 break;
             case R.id.mRltDisturbArea:

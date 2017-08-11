@@ -139,4 +139,6 @@
     <string name="location">位置</string>
     <string name="breaklocation">断开位置</string>
     <string name="breaktime">断开时间</string>
+    <string name="search_location">请输入搜索位置</string>
+    <string name="present_radii">当前半径</string>
 </resources>

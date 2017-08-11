@@ -35,6 +35,8 @@ import butterknife.ButterKnife;
 public class ActivityEquipmentLocation extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.mImgBack)
     ImageView mImgBack;
+    @BindView(R.id.mImgLocation)
+    ImageView mImgLocation;
     public LocationClient mLocationClient;
     BDLocation location;
     private MapView mMapView;
@@ -78,12 +80,17 @@ public class ActivityEquipmentLocation extends AppCompatActivity implements View
         super.onResume();
         mMapView.onResume();
         mImgBack.setOnClickListener(this);
+        mImgLocation.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.mImgBack:
+                break;
+            case R.id.mImgLocation:
+                intent = new Intent(ActivityEquipmentLocation.this,ActivityDisturbStatment.class);
+                startActivity(intent);
                 break;
             default:
         }
