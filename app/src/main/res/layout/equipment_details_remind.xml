@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lytEquipmentDetails"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/gray"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/mImgBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"
+            android:background="@mipmap/img_actionbar_back" />
+
+        <TextView
+            android:id="@+id/mTxtEquipmentname"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/remind"
+            android:textSize="22sp" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mRltNotifySound"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/border"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/mTxtNotifySound"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:text="@string/notifysound" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/imageView1"
+            android:layout_toStartOf="@+id/imageView1"
+            android:hint="@string/voice" />
+
+        <ImageView
+            android:id="@+id/imageView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_web_next" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/mRltWarnTime"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/border"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/mTxtWarnTime"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:text="@string/warntime" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toLeftOf="@+id/imageView2"
+            android:layout_toStartOf="@+id/imageView2"
+            android:hint="@string/warntime" />
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_web_next" />
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/break_explain" />
+
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/mTxtRepetition"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:text="@string/repetition" />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            android:button="@drawable/toggle_btn"
+            android:checked="false"
+            android:textOff=""
+            android:textOn="" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/repetition_explain" />
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/border"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <TextView
+            android:id="@+id/mTxtAnew"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentTop="true"
+            android:gravity="center_vertical"
+            android:text="@string/anew" />
+
+        <ToggleButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="center_horizontal"
+            android:background="@android:color/transparent"
+            android:button="@drawable/toggle_btn"
+            android:checked="false"
+            android:textOff=""
+            android:textOn="" />
+
+    </RelativeLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="@string/anew_explain" />
+</LinearLayout>

@@ -29,7 +29,7 @@
             android:value="u91zhj12Vw0mom0TmT2my2S8nmAXHmSQ" />
 
         <activity
-            android:name="com.example.make1.find.activity.ActivityEquipmentLocation"
+            android:name="com.example.make1.find.activity.ActivityEquipmentDetails"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,7 +63,9 @@
         <activity android:name=".activity.ActivityBoundConnecting"/>
         <activity android:name=".activity.ActivityWelcome"/>
         <activity android:name=".activity.ActivityDisturbStatment"/>
-        <activity android:name=".activity.ActivityEquipmentDetails"/>
+        <activity android:name=".activity.ActivityEquipmentLocation"/>
+        <activity android:name=".activity.ActivityEquipmentFindArea"/>
+        <activity android:name=".activity.ActivityEquipmentDetailsRemind"/>
 
         <service
             android:name="com.baidu.location.f"

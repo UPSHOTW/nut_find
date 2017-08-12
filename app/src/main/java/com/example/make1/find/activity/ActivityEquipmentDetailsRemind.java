@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.SimpleAdapter;
 
 import com.example.make1.find.R;
@@ -21,36 +20,31 @@ import butterknife.ButterKnife;
  *
  */
 
-public class ActivityDisturbStatment extends AppCompatActivity implements View.OnClickListener {
+public class ActivityEquipmentDetailsRemind extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.mImgBack)
     ImageView mImgBack;
-    @BindView(R.id.mRltDisturbArea)
-    RelativeLayout mRltDisturbArea;
+
     Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.equipment_disturb_statement);
+        setContentView(R.layout.equipment_details_remind);
         ButterKnife.bind(this);
+
     }
 
     @Override
     public void onResume() {
         super.onResume();
         mImgBack.setOnClickListener(this);
-        mRltDisturbArea.setOnClickListener(this);
 
     }
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.mImgBack:
-                intent = new Intent(ActivityDisturbStatment.this,ActivityEquipmentLocation.class);
-                startActivity(intent);
-                break;
-            case R.id.mRltDisturbArea:
-                intent = new Intent(ActivityDisturbStatment.this,ActivityEquipmentFindArea.class);
+                intent = new Intent(ActivityEquipmentDetailsRemind.this,ActivityEquipmentDetails.class);
                 startActivity(intent);
                 break;
             default:

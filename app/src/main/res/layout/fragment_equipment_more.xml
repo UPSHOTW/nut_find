@@ -10,6 +10,5 @@
         android:layout_height="190dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:background="@color/white"
         android:text="@string/expect"/>
 </RelativeLayout>

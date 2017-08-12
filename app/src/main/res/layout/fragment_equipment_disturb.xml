@@ -2,8 +2,9 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@color/gray">
+    android:background="@color/gray"
+    android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -11,7 +12,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginTop="0dp"
         android:orientation="vertical"
-        android:background="@color/white"
+
         android:weightSum="1">
 
         <RelativeLayout
@@ -19,8 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="36dp"
             android:layout_marginBottom="6dp"
-            android:layout_marginTop="6dp"
-            android:background="@color/white">
+            android:layout_marginTop="6dp">
 
             <ImageView
                 android:id="@+id/imgRemind"
@@ -51,11 +51,13 @@
                 android:layout_alignParentRight="true"
                 android:src="@mipmap/ic_web_next" />
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="10dp"
             android:background="@color/black" />
+
         <RelativeLayout
             android:id="@+id/rltBothway"
             android:layout_width="match_parent"
@@ -97,97 +99,100 @@
                 android:textOff=""
                 android:textOn="" />
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="10dp"
             android:background="@color/black" />
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:orientation="vertical">
-        <RelativeLayout
-            android:id="@+id/rltQuestion"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:layout_marginBottom="6dp"
-            android:layout_marginTop="6dp"
-            android:background="@color/white">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:orientation="vertical">
 
-            <ImageView
-                android:id="@+id/imgQuestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
+            <RelativeLayout
+                android:id="@+id/rltQuestion"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp">
+
+                <ImageView
+                    android:id="@+id/imgQuestion"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/ic_bar_question" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_toEndOf="@+id/imgQuestion"
+                    android:layout_toRightOf="@+id/imgQuestion"
+                    android:text="@string/question" />
+
+                <ImageView
+                    android:id="@+id/imageView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/imgQuestion"
+                    android:src="@mipmap/ic_web_next" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
                 android:layout_marginLeft="10dp"
-                android:src="@mipmap/more_question" />
+                android:background="@color/black" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="17dp"
-                android:layout_marginStart="17dp"
-                android:layout_toEndOf="@+id/imgQuestion"
-                android:layout_toRightOf="@+id/imgQuestion"
-                android:text="@string/question" />
+            <RelativeLayout
+                android:id="@+id/rltUpdate"
+                android:layout_width="match_parent"
+                android:layout_height="36dp"
+                android:layout_marginBottom="6dp"
+                android:layout_marginTop="6dp">
 
-            <ImageView
-                android:id="@+id/imageView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignTop="@+id/imgQuestion"
-                android:src="@mipmap/ic_web_next" />
-        </RelativeLayout>
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_marginLeft="10dp"
-            android:background="@color/black" />
-        <RelativeLayout
-            android:id="@+id/rltUpdate"
-            android:layout_width="match_parent"
-            android:layout_height="36dp"
-            android:layout_marginBottom="6dp"
-            android:layout_marginTop="6dp">
+                <ImageView
+                    android:id="@+id/imgUpdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="10dp"
+                    android:src="@mipmap/ic_bar_drop" />
 
-            <ImageView
-                android:id="@+id/imgUpdate"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="10dp"
-                android:src="@mipmap/ic_bar_drop" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="17dp"
+                    android:layout_marginStart="17dp"
+                    android:layout_toEndOf="@+id/imgUpdate"
+                    android:layout_toRightOf="@+id/imgUpdate"
+                    android:text="@string/firmware_update" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_gravity="center_vertical"
-                android:layout_marginLeft="17dp"
-                android:layout_marginStart="17dp"
-                android:layout_toEndOf="@+id/imgUpdate"
-                android:layout_toRightOf="@+id/imgUpdate"
-                android:text="@string/bothway" />
-
-            <ImageView
-                android:id="@+id/imageView8"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignTop="@+id/imgUpdate"
-                android:src="@mipmap/ic_web_next" />
-        </RelativeLayout>
-    </LinearLayout>
+                <ImageView
+                    android:id="@+id/imageView8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignTop="@+id/imgUpdate"
+                    android:src="@mipmap/ic_web_next" />
+            </RelativeLayout>
+        </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

@@ -141,4 +141,15 @@
     <string name="breaktime">断开时间</string>
     <string name="search_location">请输入搜索位置</string>
     <string name="present_radii">当前半径</string>
+    <string name="meter_200">200m</string>
+    <string name="meter_500">500m</string>
+    <string name="voice">声音类型</string>
+    <string name="notifysound">断开提醒声音</string>
+    <string name="warntime">断开提醒时长</string>
+    <string name="repetition">断开重复提醒</string>
+    <string name="break_explain">手机与设备断开连接时响铃时长</string>
+    <string name="repetition_explain">手机和设备断开连接后多次提醒，解锁手机或打开APP即可停止提醒</string>
+    <string name="anew">重连提醒</string>
+    <string name="anew_explain">手机与设备重新连接时手机提醒</string>
+    <string name="firmware_update">固件更新</string>
 </resources>
