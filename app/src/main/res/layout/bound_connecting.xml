@@ -20,7 +20,10 @@
                 android:id="@+id/mImgBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/img_actionbar_back" />
+                android:background="@mipmap/img_actionbar_back"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -68,7 +71,7 @@
                     <android.support.v4.view.ViewPager
                         android:id="@+id/vpconnecting"
                         android:layout_width="wrap_content"
-                        android:layout_height="17dp" />
+                        android:layout_height="16dp" />
                 </FrameLayout>
             </LinearLayout>
 
@@ -77,6 +80,5 @@
                 android:layout_height="85dp"
                 android:background="@mipmap/ic_add_nut_logo" />
         </LinearLayout>
-
     </LinearLayout>
 </LinearLayout>

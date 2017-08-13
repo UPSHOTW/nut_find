@@ -18,7 +18,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
- *
+ *蓝牙搜索到防丢设备
  */
 
 public class ActivityBoundFound extends AppCompatActivity implements View.OnClickListener {

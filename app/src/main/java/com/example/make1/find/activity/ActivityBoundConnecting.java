@@ -65,9 +65,6 @@ public class ActivityBoundConnecting extends AppCompatActivity {
         mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageSelected(int position) {
-//                dots.get(oldPosition).setBackgroundResource(R.drawable.dot_normal);
-//                dots.get(position).setBackgroundResource(R.drawable.dot_focused);
-
                 oldPosition = position;
                 currentItem = position;
             }
@@ -93,21 +90,16 @@ public class ActivityBoundConnecting extends AppCompatActivity {
         //是否是同一张图片
         @Override
         public boolean isViewFromObject(View arg0, Object arg1) {
-            // TODO Auto-generated method stub
             return arg0 == arg1;
         }
 
         @Override
         public void destroyItem(ViewGroup view, int position, Object object) {
-            // TODO Auto-generated method stub
-//            super.destroyItem(container, position, object);
-//            view.removeViewAt(position);
             view.removeView(images.get(position));
         }
 
         @Override
         public Object instantiateItem(ViewGroup view, int position) {
-            // TODO Auto-generated method stub
             view.addView(images.get(position));
             return images.get(position);
         }
@@ -115,28 +107,21 @@ public class ActivityBoundConnecting extends AppCompatActivity {
 
     @Override
     public void onStart() {
-        // TODO Auto-generated method stub
         super.onStart();
-
         scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
-
         //每隔1秒钟切换一张图片
         scheduledExecutorService.scheduleWithFixedDelay(new ViewPagerTask(), 1, 1, TimeUnit.SECONDS);
     }
 
     //切换图片
     private class ViewPagerTask implements Runnable {
-
         @Override
         public void run() {
-            // TODO Auto-generated method stub
-
             currentItem = (currentItem + 1) % imageIds.length;
             //更新界面
 //            handler.sendEmptyMessage(0);
             handler.obtainMessage().sendToTarget();
         }
-
     }
 
     private Handler handler = new Handler() {
@@ -155,7 +140,6 @@ public class ActivityBoundConnecting extends AppCompatActivity {
         // TODO Auto-generated method stub
         super.onStop();
     }
-
     @Override
     public void onResume() {
         super.onResume();
