@@ -20,7 +20,10 @@
                 android:id="@+id/mImgBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/img_actionbar_back" />
+                android:background="@mipmap/img_actionbar_back"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -28,7 +31,10 @@
                 android:gravity="center"
                 android:text="@string/bound"
                 android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:textSize="22sp"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
         </RelativeLayout>
 

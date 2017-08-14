@@ -2,35 +2,43 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:background="@drawable/button_shape_white">
+
     <LinearLayout
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="15dp"
-        android:layout_width="275dp"
+        android:layout_width="264dp"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="15dp"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textSize="24dp"
-            android:text="@string/app_name" />
-
-        <TextView
-            android:layout_marginTop="15dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp"
             android:layout_marginLeft="20dp"
-            android:text="@string/open_location" />
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp"
+            android:gravity="center"
+            android:text="@string/warntime" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.ikovac.timepickerwithseconds.view.TimePicker
+                android:id="@+id/timePicker"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="125dp"
+                />
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="30dp"
-            android:gravity="center"
-            android:weightSum="1">
+            android:gravity="center">
 
             <Button
                 android:id="@+id/mBtnAbrogate"
@@ -40,8 +48,7 @@
                 android:layout_marginTop="10dp"
                 android:background="@drawable/button_shape_white_small"
                 android:text="@string/abrogate"
-                android:textColor="@color/reseda"
-                android:layout_weight="0.20" />
+                android:textColor="@color/reseda" />
 
             <Button
                 android:id="@+id/mBtnAffirm"
@@ -50,8 +57,7 @@
                 android:layout_marginLeft="20dp"
                 android:background="@drawable/button_shape_reseda_small"
                 android:text="@string/affirm"
-                android:textColor="@color/white"
-                android:layout_weight="0.20" />
+                android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 

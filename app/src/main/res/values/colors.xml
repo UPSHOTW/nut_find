@@ -11,5 +11,5 @@
     <color name="gray">#d0d0d1</color>
     <color name="darkgray">#646468</color>
     <color name="red">#be4644</color>
-
+    <color name="scan_corner_color">#0effc2</color>
 </resources>

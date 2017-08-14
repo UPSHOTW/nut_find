@@ -149,26 +149,26 @@ public class ActivityDisturbExist extends AppCompatActivity implements View.OnCl
         mTxtThirtyMinute.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ActivityDisturbExist.this, "0.5", Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivityDisturbExist.this, "30分钟", Toast.LENGTH_LONG).show();
             }
         });
         mTxtTimeOneHour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(ActivityDisturbExist.this, "1", Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivityDisturbExist.this, "1小时", Toast.LENGTH_LONG).show();
             }
         });
         mTxtTimeTwoHour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(ActivityDisturbExist.this, "2", Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivityDisturbExist.this, "2小时", Toast.LENGTH_LONG).show();
             }
         });
         mTxtTimeFourHours.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ActivityDisturbExist.this, "4", Toast.LENGTH_LONG).show();
+                Toast.makeText(ActivityDisturbExist.this, "4小时", Toast.LENGTH_LONG).show();
             }
         });
     }

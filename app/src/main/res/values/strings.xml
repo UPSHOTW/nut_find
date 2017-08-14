@@ -152,4 +152,9 @@
     <string name="anew">重连提醒</string>
     <string name="anew_explain">手机与设备重新连接时手机提醒</string>
     <string name="firmware_update">固件更新</string>
+    <string name="send">发送</string>
+    <string name="invite">邀请家人朋友下载注册</string>
+    <string name="scan">扫一扫</string>
+    <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
+
 </resources>

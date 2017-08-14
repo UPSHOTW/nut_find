@@ -43,6 +43,10 @@ public class ActivityFriendsAddBound extends AppCompatActivity implements View.O
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.mImgBack:
+                intent = new Intent(ActivityFriendsAddBound.this,ActivityFriendsAdd.class);
+                startActivity(intent);
+                break;
             case R.id.mBtnFindNothing:
                intent = new Intent(ActivityFriendsAddBound.this,ActivityBoundExplain.class);
                 startActivity(intent);

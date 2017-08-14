@@ -3,6 +3,7 @@ package com.example.make1.find.app;
 import android.app.Application;
 
 import com.baidu.mapapi.SDKInitializer;
+import com.uuzuche.lib_zxing.activity.ZXingLibrary;
 import com.zhy.http.okhttp.OkHttpUtils;
 import com.zhy.http.okhttp.log.LoggerInterceptor;
 
@@ -17,6 +18,7 @@ public class MyApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        ZXingLibrary.initDisplayOpinion(this);
         SDKInitializer.initialize(this);//在应用程序创建时初始化SDK引用的Context全局变量
                                         //在Application初始化方法中，initialize(this)；
                                         //在其他类中，initialize(getApplicationContext()

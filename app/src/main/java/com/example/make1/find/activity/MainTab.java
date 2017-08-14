@@ -1,9 +1,14 @@
 package com.example.make1.find.activity;
 
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v7.app.AlertDialog;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.LinearLayout;
 
 import com.example.make1.find.R;
@@ -12,17 +17,17 @@ import com.example.make1.find.fragment.FragmentMap;
 import com.example.make1.find.fragment.FragmentMore;
 import com.example.make1.find.fragment.MainTabFragmentHost;
 
-
+/**
+ * 主界面
+ */
 public class MainTab extends FragmentActivity {
-	private String TAG = MainTab.class.getName();
-
+	Intent intent;
 	public MainTabFragmentHost mTabHost;
 	// 标签
 	private String[] TabTag = { "tab1", "tab2", "tab3" };
 	// 自定义tab布局显示文本和顶部的图片
 	private Integer[] ImgTab = { R.layout.tab_main_disturb,
 			R.layout.tab_main_map, R.layout.tab_main_more };
-
 	// tab 选中的activity
 	private Class[] ClassTab = { FragmentDisturb.class, FragmentMap.class,
 			FragmentMore.class };
@@ -40,7 +45,31 @@ public class MainTab extends FragmentActivity {
 		initValue();
 		setLinstener();
 		fillData();
+		LocationDialog();
 
+	}
+
+	private void LocationDialog() {
+		View view = LayoutInflater.from(MainTab.this).inflate(R.layout.dialog_open_location, null);
+		final Button mBtnAbrogate = view.findViewById(R.id.mBtnAbrogate);//"取消"按钮
+		final Button mBtnAffirm = view.findViewById(R.id.mBtnAffirm);//"确认"按钮
+		final AlertDialog.Builder builder = new AlertDialog.Builder(MainTab.this).setView(view);
+		builder.setView(view);
+		final AlertDialog alertDialog = builder.create();
+		view.setBackgroundResource(R.drawable.button_shape_white);
+		mBtnAffirm.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				//跳转到手机系统中的定位设置
+			}
+		});
+		mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				alertDialog.dismiss();
+			}
+		});
+		alertDialog.show();
 	}
 
 	private void setupView() {

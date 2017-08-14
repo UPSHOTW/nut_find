@@ -31,11 +31,11 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/mRltAddFriend"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="81dp"
-        android:background="@drawable/border"
-        android:showDividers="middle">
+        android:layout_height="60dp"
+        android:background="@drawable/border">
 
         <ImageView
             android:id="@+id/mImgAddFriends"
@@ -49,8 +49,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="21dp"
-            android:layout_marginStart="21dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:gravity="center"
             android:hint="@string/addfriends"
             android:layout_centerVertical="true"
@@ -67,9 +67,10 @@
     </RelativeLayout>
 
     <RelativeLayout
+        android:id="@+id/mRltBound"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="81dp"
+        android:layout_height="60dp"
         android:background="@drawable/border"
         android:showDividers="middle">
 
@@ -87,8 +88,8 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:hint="@string/boundbluetooth"
-            android:layout_marginLeft="21dp"
-            android:layout_marginStart="21dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/mImgBluetooth"
             android:layout_toEndOf="@+id/mImgBluetooth" />
@@ -101,9 +102,10 @@
             android:layout_alignParentEnd="true" />
     </RelativeLayout>
     <RelativeLayout
+        android:id="@+id/mRltScan"
         android:layout_marginTop="15dp"
         android:layout_width="match_parent"
-        android:layout_height="81dp"
+        android:layout_height="60dp"
         android:background="@drawable/border"
         android:showDividers="middle">
 
@@ -117,13 +119,13 @@
             android:src="@mipmap/ic_add_qr" />
 
         <TextView
-            android:id="@+id/mTxtUsername"
+            android:id="@+id/mTxtScan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:hint="@string/addfriends"
-            android:layout_marginLeft="21dp"
-            android:layout_marginStart="21dp"
+            android:hint="@string/scan"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
             android:layout_centerVertical="true"
             android:layout_toRightOf="@+id/mImgScan"
             android:layout_toEndOf="@+id/mImgScan" />

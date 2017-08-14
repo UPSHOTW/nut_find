@@ -15,8 +15,6 @@ import android.widget.TextView;
 
 import com.example.make1.find.R;
 import com.example.make1.find.activity.ActivityFriendsAdd;
-import com.example.make1.find.activity.ActivityLogin;
-import com.example.make1.find.commom.T;
 
 import java.util.ArrayList;
 import java.util.concurrent.Executors;

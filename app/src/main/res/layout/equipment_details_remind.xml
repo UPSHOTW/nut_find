@@ -75,7 +75,8 @@
         android:layout_height="40dp"
         android:background="@drawable/border"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:paddingRight="20dp"
+        android:onClick="WarnTime">
 
         <TextView
             android:id="@+id/mTxtWarnTime"
