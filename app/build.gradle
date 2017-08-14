@@ -38,4 +38,8 @@ dependencies {
     compile 'com.maiml:baseitemlayoutlibrary:2.2.3'
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
     compile 'com.xw.repo:bubbleseekbar:3.4-lite'
+    compile 'pub.devrel:easypermissions:0.2.0'
+    compile 'cn.yipianfengye.android:zxing-library:2.2'
+
+
 }
