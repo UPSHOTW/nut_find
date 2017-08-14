@@ -6,6 +6,7 @@
     android:background="@drawable/button_shape_white">
 
     <LinearLayout
+        android:id="@+id/customDialog"
         android:layout_width="264dp"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
@@ -26,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <com.ikovac.timepickerwithseconds.view.TimePicker
+            <com.example.make1.find.utils.PickerView
                 android:id="@+id/timePicker"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="match_parent"
