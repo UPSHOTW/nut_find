@@ -74,9 +74,9 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:background="@drawable/border"
+        android:onClick="WarnTime"
         android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:onClick="WarnTime">
+        android:paddingRight="20dp">
 
         <TextView
             android:id="@+id/mTxtWarnTime"
@@ -87,11 +87,13 @@
             android:text="@string/warntime" />
 
         <TextView
+            android:id="@+id/mTxtTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/imageView2"
             android:layout_toStartOf="@+id/imageView2"
+            android:gravity="right"
             android:hint="@string/warntime" />
 
         <ImageView
