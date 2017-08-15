@@ -52,7 +52,6 @@ public class ActivityDisturbExist extends AppCompatActivity implements View.OnCl
         EquipmentList();
         // TimeList();
         onGain();
-
     }
 
 //    private void TimeList() {
@@ -114,16 +113,10 @@ public class ActivityDisturbExist extends AppCompatActivity implements View.OnCl
         //1.构造一个PopupWindow，参数依次是加载的View，宽高
         final PopupWindow popWindow = new PopupWindow(view,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        // popWindow.setAnimationStyle(R.anim.more_anim_pop);  //设置加载动画
-
-        //这些为了点击非PopupWindow区域，PopupWindow会消失的，如果没有下面的
-        //代码的话，你会发现，当你把PopupWindow显示出来了，无论你按多少次后退键
-        //PopupWindow并不会关闭，而且退不出程序，加上下述代码可以解决这个问题
         popWindow.setTouchable(true);
         popWindow.setTouchInterceptor(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                // lytEquipmentDetails.setBackgroundDrawable(new ColorDrawable(0x7DC0C0C0));
                 return false;
                 // 这里如果返回true的话，touch事件将被拦截
                 // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
@@ -131,8 +124,6 @@ public class ActivityDisturbExist extends AppCompatActivity implements View.OnCl
         });
         setBackgroundAlpha(0.5f);//设置屏幕透明度
         // popWindow.setBackgroundDrawable(new BitmapDrawable());    //要为popWindow设置一个背景才有效
-
-
         //设置popupWindow显示的位置，参数依次是参照View，x轴的偏移量，y轴的偏移量
         // popWindow.showAsDropDown(v, 0,820);
         //显示在根布局的底部
@@ -150,12 +141,14 @@ public class ActivityDisturbExist extends AppCompatActivity implements View.OnCl
             @Override
             public void onClick(View v) {
                 Toast.makeText(ActivityDisturbExist.this, "30分钟", Toast.LENGTH_LONG).show();
+                popWindow.dismiss();
             }
         });
         mTxtTimeOneHour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(ActivityDisturbExist.this, "1小时", Toast.LENGTH_LONG).show();
+                popWindow.dismiss();
             }
         });
         mTxtTimeTwoHour.setOnClickListener(new View.OnClickListener() {
@@ -163,12 +156,14 @@ public class ActivityDisturbExist extends AppCompatActivity implements View.OnCl
             public void onClick(View view) {
 
                 Toast.makeText(ActivityDisturbExist.this, "2小时", Toast.LENGTH_LONG).show();
+                popWindow.dismiss();
             }
         });
         mTxtTimeFourHours.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(ActivityDisturbExist.this, "4小时", Toast.LENGTH_LONG).show();
+                popWindow.dismiss();
             }
         });
     }

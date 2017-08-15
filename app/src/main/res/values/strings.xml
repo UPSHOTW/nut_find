@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">自在找</string>
+    <string name="app_name">MAKE 1</string>
     <string name="shopping">官方商店</string>
     <string name="disturb">防丢</string>
     <string name="more">更多</string>
@@ -11,11 +11,8 @@
     <string name="story">用户故事</string>
     <string name="opinion">意见反馈</string>
     <string name="about">关于我们</string>
-    <string name="share">分享自在找</string>
+    <string name="share">分享MAKE 1</string>
     <string name="question">使用说明</string>
-    <string name="add">+</string>
-
-
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="personal">个人资料</string>
     <string name="myLocation">我的位置</string>
@@ -79,7 +76,7 @@
     <string name="verify">验证</string>
     <string name="boundemail">绑定邮箱</string>
     <string name="weichat">微信</string>
-    <string name="open_location">自在找APP需要使用定位服务确定您的防丢器位置，请打开定位。</string>
+    <string name="open_location">MAKE 1APP需要使用定位服务确定您的防丢器位置，请打开定位。</string>
     <string name="bound">绑定</string>
     <string name="bound_explain">绑定说明</string>
     <string name="search">搜索中</string>
@@ -141,8 +138,6 @@
     <string name="breaktime">断开时间</string>
     <string name="search_location">请输入搜索位置</string>
     <string name="present_radii">当前半径</string>
-    <string name="meter_200">200m</string>
-    <string name="meter_500">500m</string>
     <string name="voice">声音类型</string>
     <string name="notifysound">断开提醒声音</string>
     <string name="warntime">断开提醒时长</string>
@@ -157,5 +152,8 @@
     <string name="scan">扫一扫</string>
     <string name="scan_text">将二维码放入框内, 即可自动扫描</string>
     <string name="minute">分钟</string>
+    <string name="photograph">拍照</string>
+    <string name="album">从相册中选取</string>
+    <string name="add">+</string>
 
 </resources>

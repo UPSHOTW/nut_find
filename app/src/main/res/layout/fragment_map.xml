@@ -9,14 +9,15 @@
         android:layout_height="60dp"
         android:gravity="center">
 
-        <TextView
-            android:id="@+id/txtToBound"
-            android:layout_width="60sp"
-            android:layout_height="60sp"
-            android:gravity="center"
-            android:text="@string/add"
-            android:textSize="36sp"
-            android:textStyle="normal" />
+        <ImageView
+            android:id="@+id/mImgToBound"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:src="@mipmap/ic_action_add"
+            android:layout_alignParentTop="true"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentStart="true" />
 
         <TextView
             android:layout_width="match_parent"
@@ -25,7 +26,9 @@
             android:gravity="center"
             android:text="@string/map"
             android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:textSize="22sp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
 
     <RelativeLayout

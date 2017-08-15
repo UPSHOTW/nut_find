@@ -1,15 +1,18 @@
 package com.example.make1.find.activity;
 
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.ColorDrawable;
+
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
+import android.os.StrictMode;
+import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.widget.DrawerLayout;
+
 import android.support.v7.app.AlertDialog;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -23,16 +26,27 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.RelativeLayout;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.make1.find.R;
 import com.example.make1.find.fragment.FragmentEquipmentDetails;
+import com.example.make1.find.utils.ShearRoundness;
 
+
+import java.io.ByteArrayOutputStream;
+import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import static com.example.make1.find.constant.PhotographParameter.IMAGE_UNSPECIFIED;
+import static com.example.make1.find.constant.PhotographParameter.NONE;
+import static com.example.make1.find.constant.PhotographParameter.PHOTO_GRAPH;
+import static com.example.make1.find.constant.PhotographParameter.PHOTO_RESOULT;
+import static com.example.make1.find.constant.PhotographParameter.PHOTO_ZOOM;
+import static com.example.make1.find.constant.PhotographParameter.change_path;
+
 
 public class ActivityEquipmentDetails extends FragmentActivity implements View.OnClickListener {
     @BindView(R.id.mImgDetailsMore)
@@ -47,6 +61,8 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
     Button mBtnLossStatement;
     @BindView(R.id.ImgDistance)
     ImageView ImgDistance;
+    @BindView(R.id.mImgUser)
+    ImageView mImgUser;
     private Context mContext;
     Intent intent;
 
@@ -56,6 +72,9 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         setContentView(R.layout.equipment_details);
         ButterKnife.bind(this);
         mContext = ActivityEquipmentDetails.this;
+        StrictMode.VmPolicy.Builder Vbuilder = new StrictMode.VmPolicy.Builder();
+        StrictMode.setVmPolicy(Vbuilder.build());
+        Vbuilder.detectFileUriExposure();
         initView();
         initListener();
         initData();
@@ -93,11 +112,11 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
                 startActivity(intent);
                 break;
             case R.id.mBtnLossStatement:
-                intent = new Intent(ActivityEquipmentDetails.this,ActivityDisturbStatment.class);
+                intent = new Intent(ActivityEquipmentDetails.this, ActivityDisturbStatment.class);
                 startActivity(intent);
                 break;
             case R.id.ImgDistance:
-                intent = new Intent(ActivityEquipmentDetails.this,ActivityEquipmentLocation.class);
+                intent = new Intent(ActivityEquipmentDetails.this, ActivityEquipmentLocation.class);
                 startActivity(intent);
                 break;
             default:
@@ -119,8 +138,6 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         //1.构造一个PopupWindow，参数依次是加载的View，宽高
         final PopupWindow popWindow = new PopupWindow(view,
                 ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        // popWindow.setAnimationStyle(R.anim.more_anim_pop);  //设置加载动画
-
         //这些为了点击非PopupWindow区域，PopupWindow会消失的，如果没有下面的
         //代码的话，你会发现，当你把PopupWindow显示出来了，无论你按多少次后退键
         //PopupWindow并不会关闭，而且退不出程序，加上下述代码可以解决这个问题
@@ -157,7 +174,8 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         mTxtAlterImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                popWindow.dismiss();
+                initPopWindowPicture(v);
             }
         });
         /**
@@ -179,8 +197,8 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
                     @Override
                     public void onClick(View view) {
                         mTxtEquipmentname.setText(mEdtAlterName.getText().toString());
-                         alertDialog.dismiss();
-                        Toast.makeText(ActivityEquipmentDetails.this,"修改成功",Toast.LENGTH_LONG).show();
+                        alertDialog.dismiss();
+                        Toast.makeText(ActivityEquipmentDetails.this, "修改成功", Toast.LENGTH_LONG).show();
                     }
                 });
                 mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
@@ -190,6 +208,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
                     }
                 });
                 alertDialog.show();
+                popWindow.dismiss();
             }
         });
         /**
@@ -208,10 +227,10 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
                 mBtnDelete.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                       //删除操作
+                        //删除操作
 
                         alertDialog.dismiss();
-                        Toast.makeText(ActivityEquipmentDetails.this,"删除成功",Toast.LENGTH_LONG).show();
+                        Toast.makeText(ActivityEquipmentDetails.this, "删除成功", Toast.LENGTH_LONG).show();
                     }
                 });
                 mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
@@ -221,6 +240,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
                     }
                 });
                 alertDialog.show();
+                popWindow.dismiss();
             }
         });
         /**
@@ -239,12 +259,143 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
      *
      * @param bgAlpha 屏幕透明度0.0-1.0 1表示完全不透明
      */
-
     private void setBackgroundAlpha(float bgAlpha) {
         WindowManager.LayoutParams lp = ((ActivityEquipmentDetails) mContext).getWindow()
                 .getAttributes();
         lp.alpha = bgAlpha;
         ((ActivityEquipmentDetails) mContext).getWindow().setAttributes(lp);
     }
+
+    /**
+     * 使用PopWindow实现菜单从屏幕底部弹出
+     *
+     * @param v
+     */
+    private void initPopWindowPicture(View v) {
+        View view = LayoutInflater.from(mContext).inflate(R.layout.user_change_picture_item, null, false);//菜单具体内容布局文件
+        //内容布局控件
+        TextView mTxtPhotograph = view.findViewById(R.id.mTxtPhotograph);//拍照
+        TextView mTxtAlbum = view.findViewById(R.id.mTxtAlbum);//从相册中选取
+        TextView mTxtCancel = view.findViewById(R.id.mTxtCancel);
+        //1.构造一个PopupWindow，参数依次是加载的View，宽高
+        final PopupWindow popWindow = new PopupWindow(view,
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        popWindow.setTouchable(true);
+        popWindow.setTouchInterceptor(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return false;
+                // 这里如果返回true的话，touch事件将被拦截
+                // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
+            }
+        });
+        setBackgroundAlpha(0.5f);//设置屏幕透明度
+        //设置popupWindow显示的位置，参数依次是参照View，x轴的偏移量，y轴的偏移量
+        // popWindow.showAsDropDown(v, 0,820);
+        //显示在根布局的底部
+        popWindow.showAtLocation(view, Gravity.BOTTOM | Gravity.LEFT, 0, 0);
+        //在退出时popupWindow时，需要恢复屏幕原有透明度
+        popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
+            @Override
+            public void onDismiss() {
+                //隐藏时回复屏幕正常透明度
+                setBackgroundAlpha(1.0f);
+            }
+        });
+        /**
+         * 从相册中选取
+         */
+        mTxtAlbum.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                intent = new Intent(Intent.ACTION_PICK, null);
+                intent.setDataAndType(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, IMAGE_UNSPECIFIED);
+                startActivityForResult(intent, PHOTO_ZOOM);
+                popWindow.dismiss();
+            }
+        });
+        /**
+         * 拍照
+         */
+        mTxtPhotograph.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String filePath = Environment.getExternalStorageDirectory() + change_path;
+                File localFile = new File(filePath);
+                if (!localFile.exists()) {
+                    localFile.mkdir();
+                }
+                intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory() + change_path, "temp.jpg")));
+                startActivityForResult(intent, PHOTO_GRAPH);
+                popWindow.dismiss();
+            }
+        });
+
+        /**
+         * 取消操作
+         */
+        mTxtCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                popWindow.dismiss();
+            }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == NONE)
+            return;
+        //拍照
+        if (requestCode == PHOTO_GRAPH) {
+            //设置文件保存路径
+            String filePath = Environment.getExternalStorageDirectory() + change_path;
+            File locaFile = new File(filePath);
+            if (!locaFile.exists()) {
+                locaFile.mkdir();
+            }
+            File picture = new File(Environment.getExternalStorageDirectory() + change_path + "/temp.jpg");
+            startPhotoZoom(Uri.fromFile(picture));
+        }
+        if (data == null)
+            return;
+        //读取相册缩放图片
+        if (requestCode == PHOTO_ZOOM) {
+            startPhotoZoom(data.getData());
+        }
+        //处理结果
+        if (requestCode == PHOTO_RESOULT) {
+            Bundle extras = data.getExtras();
+            if (extras != null) {
+                Bitmap photo = extras.getParcelable("data");
+                //调用ShearRoundness工具类中的toRoundBitmap方法，将图片剪切为圆形
+                Bitmap bmBitmap = new ShearRoundness().toRoundBitmap(photo);
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                bmBitmap.compress(Bitmap.CompressFormat.JPEG, 80, stream);
+                //此处可以把Bitmap保存到sd卡中
+                mImgUser.setImageBitmap(bmBitmap);//把图片显示在控件上
+            }
+        }
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    /**
+     * @param uri
+     */
+    public void startPhotoZoom(Uri uri) {
+        intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(uri, IMAGE_UNSPECIFIED);
+        intent.putExtra("crop", "true");
+        //宽高比例
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        //剪裁图片宽高
+        intent.putExtra("outputX", 80);
+        intent.putExtra("outputY", 80);
+        intent.putExtra("return-data", true);
+        startActivityForResult(intent, PHOTO_RESOULT);
+    }
 }
+
 

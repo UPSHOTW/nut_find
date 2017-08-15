@@ -18,7 +18,6 @@
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentTop="true"
-            android:background="@drawable/button_shape_circle_reseda"
             android:src="@mipmap/img_logo_null" />
 
         <LinearLayout
