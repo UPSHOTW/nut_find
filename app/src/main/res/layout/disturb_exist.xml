@@ -14,16 +14,14 @@
             android:layout_height="60dp"
             android:background="@drawable/border">
 
-            <TextView
-                android:layout_width="60sp"
-                android:layout_height="60sp"
-                android:layout_alignParentLeft="true"
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_alignParentStart="true"
                 android:layout_alignParentTop="true"
-                android:gravity="center"
-                android:text="+"
-                android:textSize="36sp"
-                android:textStyle="normal" />
+                android:layout_gravity="center"
+                android:layout_marginLeft="10dp"
+                android:src="@mipmap/ic_action_add" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -54,7 +52,7 @@
             <ListView
                 android:id="@+id/list_equipment"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"></ListView>
+                android:layout_height="wrap_content" />
         </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

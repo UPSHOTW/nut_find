@@ -46,7 +46,7 @@
 
         </activity>
         <activity android:name=".activity.MainTab" />
-        <activity android:name=".activity.ActivityUser" />
+        <activity android:name=".activity.ActivityEquipmentDetailsRemind" />
         <activity android:name=".activity.ActivityDisturbExist" />
         <activity android:name=".activity.ActivityFriends" />
         <activity android:name=".activity.ActivityFriendsAdd" />
@@ -67,8 +67,8 @@
         <activity android:name=".activity.ActivityBoundExplain"/>
         <activity android:name=".activity.ActivityFriendsAddBound"/>
         <activity android:name=".activity.ActivityBoundFound"/>
+        <activity android:name=".activity.ActivityUser"/>
         <activity android:name=".activity.ActivityEquipmentDetails"/>
-        <activity android:name=".activity.ActivityEquipmentDetailsRemind"/>
         <activity android:name=".activity.ActivityDisturbStatment"/>
         <activity android:name=".activity.ActivityEquipmentLocation"/>
         <activity android:name=".activity.ActivityEquipmentFindArea"/>

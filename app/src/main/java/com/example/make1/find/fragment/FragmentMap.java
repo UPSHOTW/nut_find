@@ -59,7 +59,7 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
     private ImageView mBtnMapLocation;
     private Button mBtnAddFriends;
     private BaiduMap mBaiduMap;
-    private TextView txtToBound;
+    private ImageView mImgToBound;
     private RelativeLayout rltRecord;
     private RelativeLayout rltBut;
     boolean isVisible = true;
@@ -90,7 +90,7 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
         mBtnMapLocation = view.findViewById(R.id.mBtnMapLocation);
         rltBut = view.findViewById(R.id.rltBut);
         rltRecord = view.findViewById(R.id.rltRecord);
-        txtToBound = view.findViewById(R.id.txtToBound);
+        mImgToBound = view.findViewById(R.id.mImgToBound);
         mBaiduMap = mMapView.getMap();
         mBaiduMap.setMyLocationEnabled(true);
         mLocationClient = new LocationClient(getActivity());//发起定位，添加监听
@@ -116,7 +116,7 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
         super.onResume();
         mBtnAddFriends.setOnClickListener(this);
         mBtnMapLocation.setOnClickListener(this);
-        txtToBound.setOnClickListener(this);
+        mImgToBound.setOnClickListener(this);
         mMapView.onResume();
     }
 
@@ -127,7 +127,7 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
                 intent = new Intent(getActivity(), ActivityFriendsAdd.class);
                 startActivity(intent);
                 break;
-            case R.id.txtToBound:
+            case R.id.mImgToBound:
                 intent = new Intent(getActivity(), ActivityFriendsAdd.class);
                 startActivity(intent);
                 break;
