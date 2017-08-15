@@ -25,6 +25,7 @@ import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.example.make1.find.R;
+import com.xw.repo.BubbleSeekBar;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,8 +37,8 @@ import butterknife.ButterKnife;
 public class ActivityEquipmentFindArea extends AppCompatActivity implements View.OnClickListener {
     @BindView(R.id.mImgBack)
     ImageView mImgBack;
-    @BindView(R.id.seekBarRadius)
-    SeekBar seekBarRadius;
+    @BindView(R.id.bubbleSeekBar)
+    BubbleSeekBar bubbleSeekBar;
     public LocationClient mLocationClient;
     BDLocation location;
     private MapView mMapView;
@@ -67,10 +68,8 @@ public class ActivityEquipmentFindArea extends AppCompatActivity implements View
         myListener.onReceiveLocation(location);
         Log.i("nut", "option" + option);
         mLocationClient.start();
-        //滑动条
         ButterKnife.bind(this);
-       // seekBarRadius.setMin(200);
-        seekBarRadius.setMax(500);
+        bubbleSeekBar.setProgress(20);
     }
 
     @Override
@@ -85,22 +84,6 @@ public class ActivityEquipmentFindArea extends AppCompatActivity implements View
         super.onResume();
         mMapView.onResume();
         mImgBack.setOnClickListener(this);
-        seekBarRadius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                System.out.println(progress);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
     }
 
     @Override

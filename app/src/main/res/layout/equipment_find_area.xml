@@ -114,17 +114,19 @@
         android:orientation="horizontal">
 
         <com.xw.repo.BubbleSeekBar
-            android:id="@+id/seekBarRadius"
+            android:id="@+id/bubbleSeekBar"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             app:bsb_bubble_color="@color/reseda"
             app:bsb_bubble_text_color="@color/colorPrimaryDark"
             app:bsb_max="500.0"
             app:bsb_min="200.0"
             app:bsb_progress="0"
             app:bsb_second_track_color="@color/red"
-            app:bsb_section_count="5"
+            app:bsb_section_count="0"
             app:bsb_section_text_position="bottom_sides"
             app:bsb_show_progress_in_float="true"
             app:bsb_show_section_mark="true"
