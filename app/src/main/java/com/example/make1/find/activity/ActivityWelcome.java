@@ -22,7 +22,9 @@ public class ActivityWelcome extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.welcome);
-        ButterKnife.bind(this);handler.sendEmptyMessageDelayed(0,3000);
+        ButterKnife.bind(this);
+        //休眠3秒
+        handler.sendEmptyMessageDelayed(0, 3000);
     }
 
     private Handler handler = new Handler() {
@@ -33,8 +35,8 @@ public class ActivityWelcome extends AppCompatActivity {
         }
     };
 
-    public void getHome(){
-        Intent intent = new Intent(ActivityWelcome.this,ActivityLogin.class);
+    public void getHome() {
+        Intent intent = new Intent(ActivityWelcome.this, ActivityLogin.class);
         startActivity(intent);
         finish();
     }

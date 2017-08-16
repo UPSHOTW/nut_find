@@ -4,15 +4,16 @@
     android:layout_height="match_parent"
     android:background="@color/gray"
     android:orientation="vertical"
-    >
-
+    android:weightSum="10">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
         android:background="@drawable/border"
         android:orientation="horizontal"
-        android:showDividers="end">
+
+        >
 
         <ImageView
             android:id="@+id/mImgMessage"
@@ -47,15 +48,18 @@
     <RelativeLayout
         android:id="@+id/rltUser"
         android:layout_width="match_parent"
-        android:layout_height="68dp"
+        android:layout_height="0dp"
+        android:layout_weight="1.5"
         android:layout_marginTop="15dp"
         android:background="@drawable/border"
         android:showDividers="middle">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="0dp"
             android:background="@color/black" />
+
         <ImageView
             android:id="@+id/mImgUser"
             android:layout_width="wrap_content"
@@ -83,23 +87,26 @@
             android:id="@+id/imageView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_web_next"
-            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_centerVertical="true"
+            android:src="@mipmap/ic_web_next" />
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/rltFriends"
         android:layout_width="match_parent"
-        android:layout_height="37dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@drawable/border"
         android:showDividers="middle">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="0dp"
             android:background="@color/black" />
+
         <ImageView
             android:id="@+id/imgFriends"
             android:layout_width="wrap_content"
@@ -125,27 +132,32 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_web_next"
-            android:layout_alignTop="@+id/imgFriends"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignTop="@+id/imgFriends"
+            android:src="@mipmap/ic_web_next" />
     </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
         android:layout_marginTop="0dp"
         android:background="@color/black" />
+
     <RelativeLayout
         android:id="@+id/rltDisturb"
         android:layout_width="match_parent"
-        android:layout_height="36dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:layout_marginTop="15sp"
         android:background="@drawable/border">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginTop="0dp"
             android:background="@color/black" />
+
         <ImageView
             android:id="@+id/imgDisturb"
             android:layout_width="wrap_content"
@@ -157,6 +169,7 @@
             android:src="@mipmap/more_disturb" />
 
         <TextView
+            android:id="@+id/textView5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
@@ -165,17 +178,17 @@
             android:layout_marginStart="17dp"
             android:layout_toEndOf="@+id/imgDisturb"
             android:layout_toRightOf="@+id/imgDisturb"
-            android:text="@string/disturbsetting"
-            android:id="@+id/textView5" />
+            android:text="@string/disturbsetting" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@mipmap/ic_web_next"
-            android:layout_alignTop="@+id/imgDisturb"
+            android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:layout_alignTop="@+id/imgDisturb"
+            android:src="@mipmap/ic_web_next" />
     </RelativeLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="0.5dp"
@@ -206,7 +219,8 @@
     <!--在布局中写item-->
     <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
         android:layout_marginTop="15sp"
         android:background="@drawable/border"
         android:orientation="vertical">
@@ -220,7 +234,8 @@
         <RelativeLayout
             android:id="@+id/rltQuestion"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -266,7 +281,8 @@
         <RelativeLayout
             android:id="@+id/rltStory"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -289,24 +305,29 @@
                 android:layout_marginStart="17dp"
                 android:layout_toEndOf="@+id/imgStory"
                 android:layout_toRightOf="@+id/imgStory"
-                android:text="@string/story" />
+                android:text="@string/story"
+                android:id="@+id/textView11" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_web_next" />
+                android:src="@mipmap/ic_web_next"
+                android:layout_alignTop="@+id/imgStory"
+                android:layout_alignParentEnd="true" />
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="0dp"
             android:background="@color/black" />
+
         <RelativeLayout
             android:id="@+id/rltShopping"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -329,24 +350,29 @@
                 android:layout_marginStart="18dp"
                 android:layout_toEndOf="@+id/imgShopping"
                 android:layout_toRightOf="@+id/imgShopping"
-                android:text="@string/shopping" />
+                android:text="@string/shopping"
+                android:id="@+id/textView10" />
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_web_next" />
+                android:src="@mipmap/ic_web_next"
+                android:layout_alignTop="@+id/imgShopping"
+                android:layout_alignParentEnd="true" />
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="0dp"
             android:background="@color/black" />
+
         <RelativeLayout
             android:id="@+id/rltOpinion"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -374,19 +400,23 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_web_next" />
+                android:src="@mipmap/ic_web_next"
+                android:layout_alignTop="@+id/imgOpinion"
+                android:layout_alignParentEnd="true" />
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="0dp"
             android:background="@color/black" />
+
         <RelativeLayout
             android:id="@+id/rltAbout"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 
@@ -414,19 +444,23 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:src="@mipmap/ic_web_next" />
+                android:src="@mipmap/ic_web_next"
+                android:layout_alignTop="@+id/imgAbout"
+                android:layout_alignParentEnd="true" />
         </RelativeLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="10dp"
             android:layout_marginTop="0dp"
             android:background="@color/black" />
+
         <RelativeLayout
             android:id="@+id/rltShare"
             android:layout_width="match_parent"
-            android:layout_height="36dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginBottom="6dp"
             android:layout_marginTop="6dp">
 

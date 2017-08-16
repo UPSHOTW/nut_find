@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="8">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -12,7 +13,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@drawable/border"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
@@ -48,7 +50,8 @@
             android:background="@color/black" />
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="116sp"
+            android:layout_height="0dp"
+            android:layout_weight="2"
             android:layout_marginTop="0dp"
             android:background="@drawable/border"
             android:paddingLeft="20dp"
@@ -96,7 +99,8 @@
             android:background="@color/black" />
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginTop="0dp"
             android:background="@drawable/border"
             android:paddingLeft="20dp"
@@ -148,7 +152,8 @@
             android:background="@color/black" />
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginTop="0dp"
             android:background="@drawable/border"
             android:paddingLeft="20dp"
@@ -196,7 +201,8 @@
         <RelativeLayout
             android:id="@+id/mRltPhoneNum"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:layout_marginTop="0dp"
             android:background="@drawable/border"
             android:paddingLeft="20dp"
@@ -235,7 +241,8 @@
         <RelativeLayout
             android:id="@+id/mRltEmail"
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@drawable/border"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
@@ -272,7 +279,8 @@
             android:background="@color/black" />
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="40dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:background="@drawable/border"
             android:paddingLeft="20dp"
             android:paddingRight="20dp">
@@ -307,17 +315,21 @@
             android:layout_height="0.5dp"
             android:layout_marginTop="0dp"
             android:background="@color/black" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2.5">
         <Button
             android:id="@+id/mBtnEsc"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
             android:layout_gravity="center"
-            android:layout_marginTop="60dp"
             android:background="@drawable/button_shape_big"
             android:text="@string/esc"
             android:onClick="Esc"
-            android:textColor="@color/white" />
+            android:textColor="@color/white"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true" />
+        </RelativeLayout>
     </LinearLayout>
 </LinearLayout>

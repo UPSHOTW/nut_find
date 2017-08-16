@@ -3,12 +3,15 @@ package com.example.make1.find.activity;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.widget.DrawerLayout;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -18,15 +21,12 @@ import android.widget.TextView;
 import com.example.make1.find.R;
 import com.example.make1.find.fragment.FragmentLogin;
 import com.example.make1.find.fragment.FragmentLoginPhone;
+import com.example.make1.find.utils.ScreenUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class ActivityLogin extends FragmentActivity implements View.OnClickListener {
-
-    private DrawerLayout drawerLayout;
-    private ImageView actionbar_img;
-    private Button btn_left1, btn_left2;
     @BindView(R.id.mTxtRegister)
     TextView mTxtRegister;
     @BindView(R.id.mBtnLogin)
@@ -47,19 +47,12 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_main);
         ButterKnife.bind(this);
-
-//        actionBar = getActionBar();
-//        actionBar.hide();
-     /*   actionBar.setCustomView(R.layout.title);
-        actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);*/
-
         initView();
         initListener();
         initData();
     }
 
     private void initView() {
-        //  drawerLayout = (DrawerLayout) findViewById(R.id.drawerLayoutLogin);
     }
 
     private void initListener() {
@@ -71,7 +64,6 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
     }
 
     private void initData() {
-//        manager = getSupportFragmentManager();
         addFragmentToStack(new FragmentLogin());
 
     }
@@ -92,12 +84,13 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
                 startActivity(intent);
                 break;
             case R.id.mTxtForgot:
-                intent = new Intent(ActivityLogin.this,ActivityForget.class);
+                intent = new Intent(ActivityLogin.this, ActivityForget.class);
                 startActivity(intent);
                 break;
             case R.id.mRltOtherLogin:
                 if (isVisible) {
                     isVisible = false;
+
                     //动画1
                     ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltOther, "translationY", 0F, -150F);
                     //动画2

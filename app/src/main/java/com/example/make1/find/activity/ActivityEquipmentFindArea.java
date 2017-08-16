@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -23,12 +24,18 @@ import com.baidu.mapapi.map.MapView;
 import com.baidu.mapapi.map.MarkerOptions;
 import com.baidu.mapapi.map.MyLocationData;
 import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.Text;
 import com.baidu.mapapi.model.LatLng;
 import com.example.make1.find.R;
 import com.xw.repo.BubbleSeekBar;
 
+import java.util.Locale;
+import java.util.Random;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.make1.find.R.string.present_radii;
 
 /**
  *
@@ -39,12 +46,14 @@ public class ActivityEquipmentFindArea extends AppCompatActivity implements View
     ImageView mImgBack;
     @BindView(R.id.bubbleSeekBar)
     BubbleSeekBar bubbleSeekBar;
+    @BindView(R.id.mTxtPresent_radii)
+    TextView mTxtPresent_radii;
     public LocationClient mLocationClient;
     BDLocation location;
     private MapView mMapView;
     private BaiduMap mBaiduMap;
     boolean isVisible = true;
-
+    int progress = 320;//当前半径的初始值
     boolean isFirstLoc = true;// 是否首次定位
     BitmapDescriptor mCurMarker;
     LatLng ll;
@@ -69,37 +78,48 @@ public class ActivityEquipmentFindArea extends AppCompatActivity implements View
         Log.i("nut", "option" + option);
         mLocationClient.start();
         ButterKnife.bind(this);
-        bubbleSeekBar.setProgress(20);
+        bubbleSeekBar.setProgress(progress);
+        mTxtPresent_radii.setText("当前半径："+progress+"m");
+        init();
+    }
+
+    private void init() {
+        bubbleSeekBar.setOnProgressChangedListener(new BubbleSeekBar.OnProgressChangedListenerAdapter() {
+            @Override
+            public void onProgressChanged(int progress, float progressFloat) {
+                mTxtPresent_radii.setText("当前半径："+progress+"m");
+            }
+        });
     }
 
     @Override
-    public void onDestroy() {
-        super.onDestroy();
-        mMapView.onDestroy();
-    }
-
-
-    @Override
-    public void onResume() {
-        super.onResume();
-        mMapView.onResume();
-        mImgBack.setOnClickListener(this);
-    }
-
-    @Override
-    public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.mImgBack:
-                intent = new Intent(ActivityEquipmentFindArea.this,ActivityDisturbStatment.class);
-                startActivity(intent);
-                break;
-            case R.id.mImgLocation:
-                intent = new Intent(ActivityEquipmentFindArea.this, ActivityDisturbStatment.class);
-                startActivity(intent);
-                break;
-            default:
+        public void onDestroy () {
+            super.onDestroy();
+            mMapView.onDestroy();
         }
-    }
+
+
+        @Override
+        public void onResume () {
+            super.onResume();
+            mMapView.onResume();
+            mImgBack.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick (View view){
+            switch (view.getId()) {
+                case R.id.mImgBack:
+                    intent = new Intent(ActivityEquipmentFindArea.this, ActivityDisturbStatment.class);
+                    startActivity(intent);
+                    break;
+                case R.id.mImgLocation:
+                    intent = new Intent(ActivityEquipmentFindArea.this, ActivityDisturbStatment.class);
+                    startActivity(intent);
+                    break;
+                default:
+            }
+        }
 
     private void initLocation() {
         option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);

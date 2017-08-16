@@ -13,33 +13,35 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:weightSum="1">
+        android:weightSum="4">
 
         <include layout="@layout/login_title" />
 
         <FrameLayout
             android:id="@+id/frameLayoutLogin"
             android:layout_width="match_parent"
-            android:layout_height="252dp" />
+            android:layout_height="0dp"
+            android:layout_weight="2" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="0dp"
+            android:layout_gravity="center"
+            android:layout_weight="1">
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent">
+                android:layout_height="match_parent"
+                android:layout_gravity="center">
 
                 <Button
                     android:id="@+id/mBtnLogin"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
                     android:layout_gravity="center"
-                    android:layout_marginLeft="49dp"
-                    android:layout_marginTop="36dp"
+                    android:layout_marginTop="10dp"
                     android:background="@drawable/button_shape_big"
                     android:text="@string/login"
                     android:textColor="@color/white" />
@@ -48,12 +50,9 @@
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_alignLeft="@+id/mBtnLogin"
-                    android:layout_alignStart="@+id/mBtnLogin"
                     android:layout_below="@+id/mBtnLogin"
-                    android:layout_marginLeft="59dp"
-                    android:layout_marginStart="59dp"
-                    android:layout_marginTop="26dp"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="30dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -67,8 +66,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="34dp"
-                        android:textColor="@color/reseda"
-                        android:text="@string/register" />
+                        android:text="@string/register"
+                        android:textColor="@color/reseda" />
                 </LinearLayout>
 
             </RelativeLayout>
@@ -77,19 +76,15 @@
         <RelativeLayout
             android:id="@+id/mRltOtherLogin"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="100dp">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <TextView
                 android:id="@+id/mTxtOtherLogin"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginLeft="138dp"
-                android:layout_marginStart="138dp"
-                android:layout_marginTop="27dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
                 android:text="@string/otherLogin" />
 
             <ImageView
@@ -106,8 +101,7 @@
             android:id="@+id/rltOther"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-200dp"
-            android:layout_marginTop="50dp">
+            android:layout_marginBottom="-200dp">
 
             <TableLayout
                 android:layout_width="match_parent"
@@ -120,24 +114,18 @@
                     android:layout_weight="1">
 
                     <ImageView
-                        android:id="@+id/mImgFacebook"
-                        android:src="@mipmap/btn_login_facebook" />
-
-                    <ImageView
-                        android:id="@+id/mImgTwitter"
-                        android:src="@mipmap/btn_login_twitter" />
+                        android:id="@+id/mImgWechat"
+                        android:src="@mipmap/ic_share_wx" />
 
                     <ImageView
                         android:id="@+id/mImgQQ"
-                        android:src="@mipmap/btn_login_qq" />
+                        android:src="@mipmap/ic_share_qq" />
 
                     <ImageView
                         android:id="@+id/mImgSina"
-                        android:src="@mipmap/btn_login_sina" />
+                        android:src="@mipmap/ic_share_weibo" />
                 </TableRow>
             </TableLayout>
         </RelativeLayout>
     </LinearLayout>
-
-
 </LinearLayout>

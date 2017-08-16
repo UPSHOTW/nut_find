@@ -24,20 +24,27 @@ import android.widget.ImageView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
 import com.example.make1.find.R;
 import com.example.make1.find.utils.ShearRoundness;
+
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+
+import static com.example.make1.find.constant.PhotographParameter.IMAGE_FILE_NAME;
 import static com.example.make1.find.constant.PhotographParameter.IMAGE_UNSPECIFIED;
 import static com.example.make1.find.constant.PhotographParameter.NONE;
 import static com.example.make1.find.constant.PhotographParameter.PHOTO_GRAPH;
 import static com.example.make1.find.constant.PhotographParameter.PHOTO_RESOULT;
 import static com.example.make1.find.constant.PhotographParameter.PHOTO_ZOOM;
 import static com.example.make1.find.constant.PhotographParameter.change_path;
+import static com.example.make1.find.constant.PhotographParameter.output_X;
+import static com.example.make1.find.constant.PhotographParameter.output_Y;
+
 
 /**
  * Created by make1 on 2017/8/2.
@@ -68,10 +75,10 @@ public class ActivityUser extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.more_user);
         ButterKnife.bind(this);
         mContext = ActivityUser.this;
+        // android 7.0系统解决拍照的问题
         StrictMode.VmPolicy.Builder Vbuilder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(Vbuilder.build());
         Vbuilder.detectFileUriExposure();
-
     }
 
     @Override
@@ -81,8 +88,8 @@ public class ActivityUser extends AppCompatActivity implements View.OnClickListe
         mRltPhoneNum.setOnClickListener(this);
         mRltEmail.setOnClickListener(this);
         mImgUser.setOnClickListener(this);
+        mBtnEsc.setOnClickListener(this);
     }
-
 
     @Override
     public void onClick(View view) {
@@ -166,7 +173,7 @@ public class ActivityUser extends AppCompatActivity implements View.OnClickListe
                     localFile.mkdir();
                 }
                 intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory() + change_path, "temp.jpg")));
+                intent.putExtra(MediaStore.EXTRA_OUTPUT, Uri.fromFile(new File(Environment.getExternalStorageDirectory() + change_path,IMAGE_FILE_NAME)));
                 startActivityForResult(intent, PHOTO_GRAPH);
                 popWindow.dismiss();
             }
@@ -195,7 +202,7 @@ public class ActivityUser extends AppCompatActivity implements View.OnClickListe
             if (!locaFile.exists()) {
                 locaFile.mkdir();
             }
-            File picture = new File(Environment.getExternalStorageDirectory() + change_path + "/temp.jpg");
+            File picture = new File(Environment.getExternalStorageDirectory() + change_path + IMAGE_FILE_NAME);
             startPhotoZoom(Uri.fromFile(picture));
         }
         if (data == null)
@@ -209,11 +216,11 @@ public class ActivityUser extends AppCompatActivity implements View.OnClickListe
             Bundle extras = data.getExtras();
             if (extras != null) {
                 Bitmap photo = extras.getParcelable("data");
+                ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                photo.compress(Bitmap.CompressFormat.JPEG, 65, stream);
+                //此处可以把Bitmap保存到sd卡中
                 //调用ShearRoundness工具类中的toRoundBitmap方法，将图片剪切为圆形
                 Bitmap bmBitmap = new ShearRoundness().toRoundBitmap(photo);
-                ByteArrayOutputStream stream = new ByteArrayOutputStream();
-                bmBitmap.compress(Bitmap.CompressFormat.JPEG, 100, stream);
-                //此处可以把Bitmap保存到sd卡中
                 mImgUser.setImageBitmap(bmBitmap);//把图片显示在控件上
             }
         }
@@ -231,8 +238,8 @@ public class ActivityUser extends AppCompatActivity implements View.OnClickListe
         intent.putExtra("aspectX", 1);
         intent.putExtra("aspectY", 1);
         //剪裁图片宽高
-        intent.putExtra("outputX", 100);
-        intent.putExtra("outputY", 100);
+        intent.putExtra("outputX", output_X);
+        intent.putExtra("outputY", output_Y);
         intent.putExtra("return-data", true);
         startActivityForResult(intent, PHOTO_RESOULT);
     }
