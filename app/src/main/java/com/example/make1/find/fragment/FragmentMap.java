@@ -9,10 +9,12 @@ import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
 
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
@@ -68,6 +70,7 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
     BitmapDescriptor mCurMarker;
     LatLng ll;
     Intent intent;
+    int screenHeight;
     public MyLocationListener myListener = new MyLocationListener();
     LocationClientOption option = new LocationClientOption();
     FragmentTabHost mTabHost = null;
@@ -85,6 +88,14 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, null);
+        //定义DisplayMetrics 对象    
+        DisplayMetrics dm = new DisplayMetrics();
+        //取得窗口属性    
+        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
+        //窗口的宽度    
+        int screenWidth = dm.widthPixels;
+        //窗口高度    
+         screenHeight = dm.heightPixels;
         mMapView = view.findViewById(R.id.bmapView);
         mBtnAddFriends = view.findViewById(R.id.mBtnAddFriends);
         mBtnMapLocation = view.findViewById(R.id.mBtnMapLocation);
@@ -104,6 +115,7 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
         return view;
 
     }
+
 
     @Override
     public void onDestroy() {
@@ -132,12 +144,12 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.mBtnMapLocation:
-                if (isVisible){
+                if (isVisible) {
                     isVisible = false;
                     //动画1
-                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltRecord, "translationY", 0F, -180F);
+                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltRecord, "translationY", 0F, -(screenHeight/9));
                     //动画2
-                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(rltBut, "translationY", 0F, -200F);
+                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(rltBut, "translationY", 0F, -(screenHeight/8));
                     //创建动画集
                     AnimatorSet animatorSet = new AnimatorSet();
                     //设置同时播放
@@ -148,12 +160,12 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
                     animatorSet.start();
                     //更换按钮背景
                     mBtnMapLocation.setBackgroundResource(R.drawable.attrs_reseda);
-                }else {
+                } else {
                     isVisible = true;
                     //动画1
-                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltRecord, "translationY", -180F, 0F);
+                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltRecord, "translationY",  -(screenHeight/9), 0F);
                     //动画2
-                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(rltBut, "translationY", -200F, 0F);
+                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(rltBut, "translationY",  -(screenHeight/8), 0F);
                     //创建动画集
                     AnimatorSet animatorSet = new AnimatorSet();
                     //设置同时播放

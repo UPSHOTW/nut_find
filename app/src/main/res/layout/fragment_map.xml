@@ -6,34 +6,36 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="60dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:gravity="center">
 
         <ImageView
             android:id="@+id/mImgToBound"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            android:src="@mipmap/ic_action_add"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
+            android:layout_gravity="center"
             android:layout_marginLeft="10dp"
-            android:layout_alignParentStart="true" />
+            android:src="@mipmap/ic_action_add" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
             android:layout_gravity="center"
             android:gravity="center"
             android:text="@string/map"
             android:textColor="@color/black"
-            android:textSize="22sp"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentStart="true" />
+            android:textSize="22sp" />
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="0dp"
+        android:layout_weight="8">
 
         <com.baidu.mapapi.map.MapView
             android:id="@+id/bmapView"
@@ -78,10 +80,10 @@
     <RelativeLayout
         android:id="@+id/rltRecord"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="-100dp"
+        android:layout_height="wrap_content"
         android:background="@color/white"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginBottom="-100dp">
 
         <View
             android:id="@+id/viewup"
@@ -100,7 +102,7 @@
             android:layout_below="@+id/viewup"
             android:hint="@string/username"
             android:textColor="@color/black"
-            android:textSize="22dp" />
+            android:textSize="18dp" />
 
         <ImageView
             android:id="@+id/imgRefurbish"
@@ -113,35 +115,46 @@
             android:layout_marginRight="16dp"
             android:src="@mipmap/ic_location_refresh" />
 
-        <TextView
-            android:id="@+id/txtTime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/imgRefurbish"
-            android:layout_alignLeft="@+id/mTxtUsername"
-            android:layout_alignStart="@+id/mTxtUsername"
-            android:hint="@string/linktime"
-            android:textColor="@color/black" />
-
-
-        <View
-            android:id="@+id/viewdown"
+        <LinearLayout
+            android:id="@+id/linearLayout4"
             android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:layout_alignBottom="@+id/txtTime"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
-            android:background="@color/black" />
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            android:layout_alignParentStart="true">
 
-        <TextView
-            android:id="@+id/textRecord"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/viewdown"
-            android:layout_centerHorizontal="true"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:text="@string/record"
-            android:textColor="@color/black" />
+            <TextView
+                android:id="@+id/txtLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/location"
+                android:textColor="@color/black" />
+
+            <TextView
+                android:id="@+id/txtTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/linktime"
+                android:textColor="@color/black" />
+            <View
+                android:id="@+id/viewdown"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="2dp"
+                android:background="@color/black" />
+            <TextView
+                android:id="@+id/textRecord"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="@string/record"
+                android:textColor="@color/black" />
+
+        </LinearLayout>
 
     </RelativeLayout>
 
