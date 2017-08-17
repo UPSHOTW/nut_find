@@ -6,87 +6,97 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:weightSum="8">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="46dp"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/about_spacing_20"
+            android:layout_marginRight="@dimen/about_spacing_20"
+            android:layout_weight="1.5"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/about_spacing_20"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imgEmail"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_weight="1"
                 android:src="@mipmap/ic_email" />
 
             <EditText
                 android:id="@+id/mEdtEmail"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="6"
                 android:hint="@string/register_email" />
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal"
-            android:weightSum="1">
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/about_spacing_20"
+            android:layout_marginRight="@dimen/about_spacing_20"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
                 android:id="@+id/imgPwd"
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
+                android:layout_weight="1"
                 android:src="@mipmap/ic_password" />
 
             <EditText
                 android:id="@+id/mEdtPwd"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_weight="6"
                 android:hint="@string/register_pwd" />
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/TxtConsent"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="@string/consent" />
-
         <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:orientation="horizontal">
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
 
             <TextView
-                android:id="@+id/TxtTerms"
-                android:layout_width="wrap_content"
+                android:id="@+id/TxtConsent"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/terms"
-                android:textColor="@color/colorPrimary" />
+                android:gravity="center"
+                android:text="@string/consent" />
 
-            <TextView
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/and" />
+                android:layout_gravity="center"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/TxtAgreement"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/agreement"
-                android:textColor="@color/colorPrimary" />
+                <TextView
+                    android:id="@+id/TxtTerms"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/terms"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/and" />
+
+                <TextView
+                    android:id="@+id/TxtAgreement"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/agreement"
+                    android:textColor="@color/colorPrimary" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

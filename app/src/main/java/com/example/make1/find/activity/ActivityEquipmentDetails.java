@@ -14,6 +14,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
 import android.support.v7.app.AlertDialog;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
@@ -72,6 +73,13 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         setContentView(R.layout.equipment_details);
         ButterKnife.bind(this);
         mContext = ActivityEquipmentDetails.this;
+        //新页面接收数据
+        Bundle bundle = this.getIntent().getExtras();
+        //接收name值
+        String equipmentName= bundle.getString("equipmentName");
+        Log.i("获取到的name值为",equipmentName);
+
+        //解决7.0版本的拍照问题
         StrictMode.VmPolicy.Builder Vbuilder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(Vbuilder.build());
         Vbuilder.detectFileUriExposure();

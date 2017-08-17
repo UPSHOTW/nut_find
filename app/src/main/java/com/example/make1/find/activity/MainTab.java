@@ -48,7 +48,9 @@ public class MainTab extends FragmentActivity {
 		LocationDialog();
 
 	}
-
+	/**
+	 * 打开定位提示框
+	 */
 	private void LocationDialog() {
 		View view = LayoutInflater.from(MainTab.this).inflate(R.layout.dialog_open_location, null);
 		final Button mBtnAbrogate = view.findViewById(R.id.mBtnAbrogate);//"取消"按钮
@@ -61,6 +63,7 @@ public class MainTab extends FragmentActivity {
 			@Override
 			public void onClick(View view) {
 				//跳转到手机系统中的定位设置
+				alertDialog.dismiss();
 			}
 		});
 		mBtnAbrogate.setOnClickListener(new View.OnClickListener() {

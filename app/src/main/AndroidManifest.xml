@@ -36,7 +36,7 @@
             android:value="u91zhj12Vw0mom0TmT2my2S8nmAXHmSQ" />
 
         <activity
-            android:name="com.example.make1.find.activity.ActivityWelcome"
+            android:name="com.example.make1.find.activity.ActivityBoundEquipment"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -73,8 +73,9 @@
         <activity android:name=".activity.ActivityEquipmentLocation"/>
         <activity android:name=".activity.ActivityEquipmentFindArea"/>
         <activity android:name=".activity.ActivityAddition"/>
-        <activity android:name=".activity.ActivityBoundConnecting"/>
+        <activity android:name=".activity.ActivityWelcome"/>
         <activity android:name=".activity.ScanBaseActivity"/>
+        <activity android:name=".activity.ActivityBoundConnecting"/>
 
 
         <service

@@ -2,26 +2,19 @@ package com.example.make1.find.activity;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
-import android.support.v4.widget.DrawerLayout;
-import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.WindowManager;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.example.make1.find.R;
 import com.example.make1.find.fragment.FragmentLogin;
-import com.example.make1.find.fragment.FragmentLoginPhone;
-import com.example.make1.find.utils.ScreenUtils;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -40,6 +33,8 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
     @BindView(R.id.mTxtForgot)
     TextView mTxtForgot;
     Intent intent;
+    int controlHeight;
+    int controlWidth;
     private boolean isVisible = true;
 
     @Override
@@ -50,6 +45,20 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
         initView();
         initListener();
         initData();
+        controlHeight();
+    }
+    //获取控件高度
+    private void controlHeight() {
+        ViewTreeObserver vto = rltOther.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                rltOther.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                controlHeight =  rltOther.getHeight();
+               controlWidth = rltOther.getWidth();
+
+            }
+        });
     }
 
     private void initView() {
@@ -92,9 +101,9 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
                     isVisible = false;
 
                     //动画1
-                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltOther, "translationY", 0F, -150F);
+                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltOther, "translationY", 0F, -controlHeight);
                     //动画2
-                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(mRltOtherLogin, "translationY", 0F, -160F);
+                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(mRltOtherLogin, "translationY", 0F, -controlHeight);
                     //创建动画集
                     AnimatorSet animatorSet = new AnimatorSet();
                     //设置同时播放
@@ -107,9 +116,9 @@ public class ActivityLogin extends FragmentActivity implements View.OnClickListe
                 } else {
                     isVisible = true;
                     //动画1
-                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltOther, "translationY", -150F, 0F);
+                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltOther, "translationY", -controlHeight, 0F);
                     //动画2
-                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(mRltOtherLogin, "translationY", -160F, 0F);
+                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(mRltOtherLogin, "translationY", -controlHeight, 0F);
                     //创建动画集
                     AnimatorSet animatorSet = new AnimatorSet();
                     //设置同时播放

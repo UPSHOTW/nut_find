@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="40dp"
+    android:layout_height="wrap_content"
+    android:paddingLeft="@dimen/about_spacing_20"
+    android:paddingRight="@dimen/about_spacing_20"
     android:background="@color/gray">
+
     <ImageButton
         android:id="@+id/mImgBack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
-        android:background="@mipmap/img_actionbar_back"
-        android:layout_alignTop="@+id/actionbar_title"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/actionbar_title"
+        android:background="@mipmap/img_actionbar_back" />
+
     <TextView
         android:id="@+id/actionbar_title"
         android:layout_width="wrap_content"
@@ -19,16 +22,13 @@
         android:layout_centerInParent="true"
         android:text="@string/addfriends"
         android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:textSize="@dimen/title_size" />
+
     <TextView
         android:id="@+id/TxtSend"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/send"
-        android:layout_alignTop="@+id/actionbar_title"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="11dp"
-        android:layout_marginEnd="11dp"
-        android:textSize="20sp"/>
+        android:layout_centerVertical="true"
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

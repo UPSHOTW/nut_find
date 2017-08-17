@@ -5,18 +5,14 @@ import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTabHost;
 
-import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
+import android.view.ViewTreeObserver;
 import android.widget.Button;
 
 
@@ -36,17 +32,10 @@ import com.baidu.mapapi.map.OverlayOptions;
 import com.baidu.mapapi.model.LatLng;
 import com.example.make1.find.R;
 
-import android.view.View;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.example.make1.find.activity.ActivityFriends;
 import com.example.make1.find.activity.ActivityFriendsAdd;
-import com.example.make1.find.activity.ActivityUser;
-import com.example.make1.find.activity.MainTab;
 
 
 /**
@@ -70,7 +59,7 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
     BitmapDescriptor mCurMarker;
     LatLng ll;
     Intent intent;
-    int screenHeight;
+    int controlHeight;
     public MyLocationListener myListener = new MyLocationListener();
     LocationClientOption option = new LocationClientOption();
     FragmentTabHost mTabHost = null;
@@ -81,6 +70,7 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
         Bundle bundle = getArguments();
         if (null != bundle) {
         }
+
     }
 
 
@@ -88,14 +78,6 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_map, null);
-        //定义DisplayMetrics 对象    
-        DisplayMetrics dm = new DisplayMetrics();
-        //取得窗口属性    
-        getActivity().getWindowManager().getDefaultDisplay().getMetrics(dm);
-        //窗口的宽度    
-        int screenWidth = dm.widthPixels;
-        //窗口高度    
-         screenHeight = dm.heightPixels;
         mMapView = view.findViewById(R.id.bmapView);
         mBtnAddFriends = view.findViewById(R.id.mBtnAddFriends);
         mBtnMapLocation = view.findViewById(R.id.mBtnMapLocation);
@@ -112,8 +94,22 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
         myListener.onReceiveLocation(location);
         Log.i("nut", "option" + option);
         mLocationClient.start();
+        controlHeight();
         return view;
 
+    }
+    //获取控件高度
+    private void controlHeight() {
+        ViewTreeObserver vto = rltRecord.getViewTreeObserver();
+        vto.addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                rltRecord.getViewTreeObserver().removeGlobalOnLayoutListener(this);
+                rltRecord.getHeight();
+                rltRecord.getWidth();
+                controlHeight = rltRecord.getHeight();
+            }
+        });
     }
 
 
@@ -147,9 +143,9 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
                 if (isVisible) {
                     isVisible = false;
                     //动画1
-                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltRecord, "translationY", 0F, -(screenHeight/9));
+                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltRecord, "translationY", 0F, -controlHeight);
                     //动画2
-                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(rltBut, "translationY", 0F, -(screenHeight/8));
+                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(rltBut, "translationY", 0F, -controlHeight);
                     //创建动画集
                     AnimatorSet animatorSet = new AnimatorSet();
                     //设置同时播放
@@ -163,9 +159,9 @@ public class FragmentMap extends Fragment implements View.OnClickListener {
                 } else {
                     isVisible = true;
                     //动画1
-                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltRecord, "translationY",  -(screenHeight/9), 0F);
+                    ObjectAnimator oa1 = ObjectAnimator.ofFloat(rltRecord, "translationY", -controlHeight, 0F);
                     //动画2
-                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(rltBut, "translationY",  -(screenHeight/8), 0F);
+                    ObjectAnimator oa2 = ObjectAnimator.ofFloat(rltBut, "translationY", -controlHeight, 0F);
                     //创建动画集
                     AnimatorSet animatorSet = new AnimatorSet();
                     //设置同时播放

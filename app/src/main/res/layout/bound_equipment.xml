@@ -1,5 +1,4 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
@@ -9,23 +8,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        >
+        android:weightSum="10">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            android:background="@color/white">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:paddingLeft="@dimen/about_spacing_20"
+            android:paddingRight="@dimen/about_spacing_20">
 
             <ImageButton
                 android:id="@+id/mImgStop"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/ic_web_stop"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:background="@mipmap/ic_web_stop" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -33,65 +32,79 @@
                 android:gravity="center"
                 android:text="@string/bound"
                 android:textColor="@color/black"
-                android:textSize="22dp" />
-            <TextView
-                android:id="@+id/put_in"
+                android:textSize="@dimen/title_size" />
+
+            <Button
+                android:id="@+id/mTxtFinish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/finish"
+                android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_alignParentEnd="true" />
+                android:text="@string/finish" />
 
         </RelativeLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:orientation="vertical"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            >
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/about_spacing_20"
+            android:layout_marginRight="@dimen/about_spacing_20"
+            android:layout_weight="4"
+            android:orientation="vertical">
 
             <ImageView
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:id="@+id/mImgGoods"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
+                android:layout_weight="2.5"
                 android:src="@mipmap/ic_add_nut_logo" />
 
             <EditText
                 android:id="@+id/mEdtArticle"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_height="0dp"
+                android:layout_weight="1.5"
                 android:gravity="center"
                 android:hint="@string/article" />
         </LinearLayout>
 
         <TableLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:stretchColumns="*"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            android:layout_height="0dp"
+            android:layout_marginLeft="@dimen/about_spacing_20"
+            android:layout_marginRight="@dimen/about_spacing_20"
+            android:layout_weight="3"
+            android:stretchColumns="*">
 
             <TableRow>
 
-                <Button android:text="@string/key" />
+                <Button
+                    android:id="@+id/mBtnKey"
+                    android:text="@string/key" />
 
-                <Button android:text="@string/wallet" />
+                <Button
+                    android:id="@+id/mBtnWallet"
+                    android:text="@string/wallet" />
 
-                <Button android:text="@string/laptop" />
+                <Button
+                    android:id="@+id/mBtnLaptop"
+                    android:text="@string/laptop" />
             </TableRow>
 
             <TableRow>
 
-                <Button android:text="@string/suitcase" />
+                <Button
+                    android:id="@+id/mBtnSuitcase"
+                    android:text="@string/suitcase" />
 
-                <Button android:text="@string/haversack" />
+                <Button
+                    android:id="@+id/mBtnHaversack"
+                    android:text="@string/haversack" />
 
-                <Button android:text="@string/other" />
+                <Button
+                    android:id="@+id/mBtnOther"
+                    android:text="@string/other" />
             </TableRow>
         </TableLayout>
     </LinearLayout>

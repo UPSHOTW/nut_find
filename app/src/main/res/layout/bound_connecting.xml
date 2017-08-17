@@ -7,23 +7,23 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingLeft="@dimen/about_spacing_20"
+        android:paddingRight="@dimen/about_spacing_20"
+        android:weightSum="10">
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:layout_height="0dp"
+            android:layout_weight="1">
 
             <ImageButton
                 android:id="@+id/mImgBack"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@mipmap/img_actionbar_back"
+                android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
-                android:layout_alignParentLeft="true"
-                android:layout_alignParentStart="true" />
+                android:background="@mipmap/img_actionbar_back" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -31,53 +31,57 @@
                 android:gravity="center"
                 android:text="@string/bound"
                 android:textColor="@color/black"
-                android:textSize="22sp" />
+                android:textSize="@dimen/title_size" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="25dp"
-            android:orientation="horizontal"
-            android:paddingLeft="20dp"
-            android:paddingRight="20dp">
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageView
-                android:layout_width="wrap_content"
+                android:layout_width="0dp"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="15dp"
                 android:src="@mipmap/connecting_phone" />
 
             <LinearLayout
-                android:layout_width="140dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="15dp"
-                android:layout_marginTop="30dp"
-                android:orientation="vertical">
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:gravity="center"
+                android:layout_height="match_parent"
+                android:layout_marginRight="@dimen/about_spacing_20"
+                android:layout_marginLeft="@dimen/about_spacing_20"
+                android:orientation="vertical"
+                android:weightSum="6">
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="10dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="@string/connecting" />
 
                 <FrameLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
 
                     <android.support.v4.view.ViewPager
                         android:id="@+id/vpconnecting"
                         android:layout_width="wrap_content"
-                        android:layout_height="16dp" />
+                        android:layout_height="wrap_content"
+                        />
                 </FrameLayout>
             </LinearLayout>
 
             <ImageView
-                android:layout_width="85dp"
-                android:layout_height="85dp"
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
                 android:background="@mipmap/ic_add_nut_logo" />
         </LinearLayout>
     </LinearLayout>

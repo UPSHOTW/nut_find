@@ -101,7 +101,8 @@
             android:id="@+id/rltOther"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="-200dp">
+            android:layout_marginBottom="-200dp"
+            android:layout_weight="0.52">
 
             <TableLayout
                 android:layout_width="match_parent"
