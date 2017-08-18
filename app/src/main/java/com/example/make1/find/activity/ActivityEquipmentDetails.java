@@ -78,7 +78,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         //接收name值
         String equipmentName= bundle.getString("equipmentName");
         Log.i("获取到的name值为",equipmentName);
-
+        mTxtEquipmentname.setText(equipmentName);
         //解决7.0版本的拍照问题
         StrictMode.VmPolicy.Builder Vbuilder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(Vbuilder.build());

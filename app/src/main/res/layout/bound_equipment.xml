@@ -34,7 +34,7 @@
                 android:textColor="@color/black"
                 android:textSize="@dimen/title_size" />
 
-            <Button
+            <TextView
                 android:id="@+id/mTxtFinish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -69,44 +69,92 @@
                 android:hint="@string/article" />
         </LinearLayout>
 
-        <TableLayout
+        <RadioGroup
+            android:id="@+id/radioGroup"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_weight="2"
             android:layout_marginLeft="@dimen/about_spacing_20"
-            android:layout_marginRight="@dimen/about_spacing_20"
-            android:layout_weight="3"
-            android:stretchColumns="*">
+            android:layout_marginRight="@dimen/about_spacing_20">
 
-            <TableRow>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
 
-                <Button
+                <RadioButton
                     android:id="@+id/mBtnKey"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/about_spacing_20"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_equipmentname"
+                    android:button="@null"
+                    android:gravity="center"
                     android:text="@string/key" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/mBtnWallet"
-                    android:text="@string/wallet" />
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/about_spacing_20"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_equipmentname"
+                    android:button="@null"
+                    android:gravity="center"
+                    android:text="@string/wallet"
+                    android:focusable="true"/>
 
-                <Button
+                <RadioButton
                     android:id="@+id/mBtnLaptop"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_equipmentname"
+                    android:button="@null"
+                    android:gravity="center"
                     android:text="@string/laptop" />
-            </TableRow>
+            </LinearLayout>
 
-            <TableRow>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginTop="@dimen/about_spacing_20">
 
-                <Button
+                <RadioButton
                     android:id="@+id/mBtnSuitcase"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/about_spacing_20"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_equipmentname"
+                    android:button="@null"
+                    android:gravity="center"
                     android:text="@string/suitcase" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/mBtnHaversack"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="@dimen/about_spacing_20"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_equipmentname"
+                    android:button="@null"
+                    android:gravity="center"
                     android:text="@string/haversack" />
 
-                <Button
+                <RadioButton
                     android:id="@+id/mBtnOther"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/button_equipmentname"
+                    android:button="@null"
+                    android:gravity="center"
                     android:text="@string/other" />
-            </TableRow>
-        </TableLayout>
+            </LinearLayout>
+        </RadioGroup>
     </LinearLayout>
 
 

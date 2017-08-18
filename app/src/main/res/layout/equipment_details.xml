@@ -1,107 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/lytEquipmentDetails"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    android:id="@+id/lytEquipmentDetails"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:paddingLeft="@dimen/about_spacing_20"
+    android:paddingRight="@dimen/about_spacing_20"
+    android:weightSum="8">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        >
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
         <ImageButton
             android:id="@+id/mImgBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/img_actionbar_back"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            android:background="@mipmap/img_actionbar_back" />
 
         <TextView
             android:id="@+id/mTxtEquipmentname"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:gravity="center"
             android:text="@string/equipmentname"
             android:textColor="@color/black"
-            android:textSize="22sp" />
+            android:textSize="@dimen/title_size" />
+
         <ImageView
             android:id="@+id/mImgDetailsMore"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@mipmap/ic_actionbar_more_white"
-            android:layout_marginRight="20dp"
-            android:layout_marginEnd="20dp"
+            android:layout_alignParentEnd="true"
             android:layout_alignTop="@+id/mImgBack"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true" />
+            android:background="@mipmap/ic_actionbar_more_white" />
     </RelativeLayout>
 
     <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
         android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="15dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            >
 
             <ImageView
                 android:id="@+id/mImgUser"
-                android:layout_width="120dp"
-                android:layout_height="120dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:layout_gravity="center"
-                android:layout_marginBottom="15dp"
+                android:layout_weight="5"
                 android:src="@mipmap/ic_add_nut_logo" />
 
             <TextView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:gravity="center"
                 android:text="@string/bound_state" />
+
             <Button
                 android:id="@+id/mBtnLossStatement"
-                android:layout_width="119dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
                 android:layout_gravity="center"
+                android:layout_weight="1"
                 android:background="@drawable/button_shape_white_small"
                 android:text="@string/lossstatement"
                 android:textColor="@color/reseda" />
+
             <ImageView
                 android:id="@+id/ImgDistance"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="@dimen/distance_five"
+                android:layout_weight="1"
                 android:background="@drawable/button_shape_darkgray_small"
-                android:src="@mipmap/ic_btn_location_off"/>
+                android:src="@mipmap/ic_btn_location_off" />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            </LinearLayout>
-
     </LinearLayout>
+
     <FrameLayout
         android:id="@+id/frameLayoutEquipment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="0dp"
+        android:layout_weight="4" />
 </LinearLayout>

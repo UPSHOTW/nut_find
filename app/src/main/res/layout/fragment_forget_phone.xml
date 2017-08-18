@@ -89,6 +89,7 @@
                 android:id="@+id/mEdtPwd"
                 android:layout_width="0dp"
                 android:layout_weight="6"
+                android:inputType="textPassword"
                 android:layout_height="wrap_content"
                 android:hint="@string/register_pwd" />
         </LinearLayout>
