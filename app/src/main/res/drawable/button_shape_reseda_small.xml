@@ -10,6 +10,10 @@
         android:width="1dp"
         android:color="@color/reseda" />
     <size android:height="20dp"
-        android:width="46dp"/>
+        android:width="60dp"/>
+    <padding
+        android:left="@dimen/about_spacing_20"
+        android:right="@dimen/about_spacing_20"
+        />
 
 </shape>

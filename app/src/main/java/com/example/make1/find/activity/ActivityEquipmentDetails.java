@@ -66,6 +66,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
     ImageView mImgUser;
     private Context mContext;
     Intent intent;
+    boolean isfre = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,7 +87,35 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         initView();
         initListener();
         initData();
+        fre();
     }
+
+    private void fre() {
+        if (isfre){
+                View view = LayoutInflater.from(ActivityEquipmentDetails.this).inflate(R.layout.dialog_bound_equipment, null);
+                final Button mBtnAbrogate = view.findViewById(R.id.mBtnAbrogate);
+                final Button mBtnAffirm = view.findViewById(R.id.mBtnAffirm);
+                final AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEquipmentDetails.this).setView(view);
+                builder.setView(view);
+                final AlertDialog alertDialog = builder.create();
+                view.setBackgroundResource(R.drawable.button_shape_white);
+                mBtnAffirm.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        intent = new Intent(ActivityEquipmentDetails.this,ActivityMoreQuestion.class);
+                        startActivity(intent);
+                    }
+                });
+                mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        alertDialog.dismiss();
+                    }
+                });
+                alertDialog.show();
+            }
+    }
+
 
     private void initView() {
 
