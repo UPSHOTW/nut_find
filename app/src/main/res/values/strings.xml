@@ -155,5 +155,6 @@
     <string name="photograph">拍照</string>
     <string name="album">从相册中选取</string>
     <string name="add">+</string>
+    <string name="ununited_delete">设备已与您的账号绑定，当前未与手机连接，建议连接后再删除，否则他人无法使用。</string>
 
 </resources>

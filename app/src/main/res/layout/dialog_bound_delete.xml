@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/button_shape_white"
+    android:background="@color/gray"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
+        android:layout_marginBottom="@dimen/about_spacing_20"
+        android:layout_marginLeft="@dimen/about_spacing_20"
+        android:layout_marginRight="@dimen/about_spacing_20"
+        android:layout_marginTop="@dimen/about_spacing_20"
         android:orientation="vertical"
         android:weightSum="20"
-        android:layout_marginLeft="@dimen/about_spacing_20"
-        android:layout_marginRight="@dimen/about_spacing_20">
+        android:background="@color/white">
 
         <TextView
             android:layout_width="match_parent"
@@ -27,7 +30,7 @@
             android:layout_height="0dp"
             android:layout_weight="5"
             android:gravity="center"
-            android:text="@string/open_jurisdiction" />
+            android:text="@string/ununited_delete" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -39,23 +42,23 @@
             <Button
                 android:id="@+id/mBtnAbrogate"
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="10dp"
+                android:layout_weight="2"
                 android:background="@drawable/button_shape_white_small"
-                android:text="@string/got_it"
+                android:text="@string/cancel"
                 android:textColor="@color/reseda" />
 
             <Button
-                android:id="@+id/mBtnAffirm"
+                android:id="@+id/mBtnDelete"
                 android:layout_width="0dp"
-                android:layout_weight="2"
                 android:layout_height="wrap_content"
-                android:background="@drawable/button_shape_reseda_small"
-                android:text="@string/open"
+                android:layout_weight="2"
+                android:background="@drawable/button_shape_darkgray_small"
+                android:text="@string/delete"
                 android:textColor="@color/white" />
         </LinearLayout>
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>

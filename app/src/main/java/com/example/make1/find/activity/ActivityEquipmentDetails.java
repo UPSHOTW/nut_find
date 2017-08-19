@@ -75,11 +75,11 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         ButterKnife.bind(this);
         mContext = ActivityEquipmentDetails.this;
         //新页面接收数据
-        Bundle bundle = this.getIntent().getExtras();
-        //接收name值
-        String equipmentName= bundle.getString("equipmentName");
-        Log.i("获取到的name值为",equipmentName);
-        mTxtEquipmentname.setText(equipmentName);
+//        Bundle bundle = this.getIntent().getExtras();
+//        //接收name值
+//        String equipmentName= bundle.getString("equipmentName");
+//        Log.i("获取到的name值为",equipmentName);
+//        mTxtEquipmentname.setText(equipmentName);
         //解决7.0版本的拍照问题
         StrictMode.VmPolicy.Builder Vbuilder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(Vbuilder.build());
