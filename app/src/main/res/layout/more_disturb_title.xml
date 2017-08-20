@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/gray"
+    android:paddingLeft="@dimen/about_spacing_20"
+    android:paddingRight="@dimen/about_spacing_20">
+
+    <ImageButton
+        android:id="@+id/mImgBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/actionbar_title"
+        android:background="@mipmap/img_actionbar_back" />
+
+    <TextView
+        android:id="@+id/actionbar_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/disturbsetting"
+        android:textSize="@dimen/title_size" />
+</RelativeLayout>
