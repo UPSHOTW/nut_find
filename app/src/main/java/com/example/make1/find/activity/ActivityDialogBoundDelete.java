@@ -17,7 +17,6 @@ import butterknife.ButterKnife;
 
 /**
  * Created by make1 on 2017/8/2.
- *
  */
 
 public class ActivityDialogBoundDelete extends AppCompatActivity implements View.OnClickListener {
@@ -32,7 +31,7 @@ public class ActivityDialogBoundDelete extends AppCompatActivity implements View
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_bound_delete);
-       mBtnDelete =(Button) findViewById(R.id.mBtnDelete);
+        mBtnDelete = (Button) findViewById(R.id.mBtnDelete);
         new Thread(new MyCountDownTimer()).start();
     }
 
@@ -42,6 +41,7 @@ public class ActivityDialogBoundDelete extends AppCompatActivity implements View
 
         mBtnDelete.setOnClickListener(this);
     }
+
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
@@ -52,6 +52,7 @@ public class ActivityDialogBoundDelete extends AppCompatActivity implements View
             default:
         }
     }
+
     /**
      * 自定义倒计时类，实现Runnable接口
      */

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/button_shape_white"
+    android:paddingLeft="@dimen/about_spacing_20"
+    android:paddingRight="@dimen/about_spacing_20"
     >
 
     <LinearLayout
@@ -11,8 +13,9 @@
         android:layout_gravity="center"
         android:orientation="vertical"
         android:weightSum="20"
-        android:layout_marginLeft="@dimen/about_spacing_20"
-        android:layout_marginRight="@dimen/about_spacing_20">
+        android:layout_marginTop="@dimen/about_spacing_20"
+        android:layout_marginBottom="@dimen/about_spacing_20"
+        >
 
         <TextView
             android:layout_width="match_parent"
@@ -48,7 +51,7 @@
                 android:textColor="@color/reseda" />
 
             <Button
-                android:id="@+id/mBtnAffirm"
+                android:id="@+id/mBtnAffirmOpen"
                 android:layout_width="0dp"
                 android:layout_weight="2"
                 android:layout_height="wrap_content"
@@ -58,4 +61,4 @@
         </LinearLayout>
     </LinearLayout>
 
-</FrameLayout>
+</LinearLayout>

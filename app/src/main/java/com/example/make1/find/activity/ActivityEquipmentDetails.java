@@ -8,6 +8,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
 import android.os.StrictMode;
 import android.provider.MediaStore;
 import android.support.v4.app.Fragment;
@@ -33,14 +34,23 @@ import android.widget.Toast;
 
 import com.example.make1.find.R;
 import com.example.make1.find.fragment.FragmentEquipmentDetails;
+import com.example.make1.find.utils.PickerView;
 import com.example.make1.find.utils.ShearRoundness;
+import com.example.make1.find.utils.WindowUtils;
 
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+
+import static com.example.make1.find.R.id.mBtnAffirm;
+import static com.example.make1.find.R.id.mBtnAffirmName;
+import static com.example.make1.find.R.string.warntime;
 import static com.example.make1.find.constant.PhotographParameter.IMAGE_UNSPECIFIED;
 import static com.example.make1.find.constant.PhotographParameter.NONE;
 import static com.example.make1.find.constant.PhotographParameter.PHOTO_GRAPH;
@@ -67,6 +77,8 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
     private Context mContext;
     Intent intent;
     boolean isfre = true;
+    private Handler mHandler = new Handler();
+    private Timer mMyTimer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,11 +87,11 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         ButterKnife.bind(this);
         mContext = ActivityEquipmentDetails.this;
         //新页面接收数据
-//        Bundle bundle = this.getIntent().getExtras();
-//        //接收name值
-//        String equipmentName= bundle.getString("equipmentName");
-//        Log.i("获取到的name值为",equipmentName);
-//        mTxtEquipmentname.setText(equipmentName);
+        Bundle bundle = this.getIntent().getExtras();
+        //接收name值
+        String equipmentName = bundle.getString("equipmentName");
+        Log.i("获取到的name值为", equipmentName);
+        mTxtEquipmentname.setText(equipmentName);
         //解决7.0版本的拍照问题
         StrictMode.VmPolicy.Builder Vbuilder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(Vbuilder.build());
@@ -88,32 +100,34 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         initListener();
         initData();
         fre();
+        mMyTimer = new Timer();
+
     }
 
     private void fre() {
-        if (isfre){
-                View view = LayoutInflater.from(ActivityEquipmentDetails.this).inflate(R.layout.dialog_bound_equipment, null);
-                final Button mBtnAbrogate = view.findViewById(R.id.mBtnAbrogate);
-                final Button mBtnAffirm = view.findViewById(R.id.mBtnAffirm);
-                final AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEquipmentDetails.this).setView(view);
-                builder.setView(view);
-                final AlertDialog alertDialog = builder.create();
-                view.setBackgroundResource(R.drawable.button_shape_white);
-                mBtnAffirm.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        intent = new Intent(ActivityEquipmentDetails.this,ActivityMoreQuestion.class);
-                        startActivity(intent);
-                    }
-                });
-                mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        alertDialog.dismiss();
-                    }
-                });
-                alertDialog.show();
-            }
+        if (isfre) {
+            View view = LayoutInflater.from(ActivityEquipmentDetails.this).inflate(R.layout.dialog_bound_equipment, null);
+            final Button mBtnAbrogate = view.findViewById(R.id.mBtnAbrogate);
+            final Button mBtnAffirm = view.findViewById(R.id.mBtnAffirmOpen);
+            final AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEquipmentDetails.this).setView(view);
+            builder.setView(view);
+            final AlertDialog alertDialog = builder.create();
+            view.setBackgroundResource(R.drawable.button_shape_white);
+            mBtnAffirm.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    intent = new Intent(ActivityEquipmentDetails.this, ActivityMoreQuestion.class);
+                    startActivity(intent);
+                }
+            });
+            mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    alertDialog.dismiss();
+                }
+            });
+            alertDialog.show();
+        }
     }
 
 
@@ -224,7 +238,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
                 View v = LayoutInflater.from(ActivityEquipmentDetails.this).inflate(R.layout.dialog_equipment_details_altername, null);
                 final EditText mEdtAlterName = v.findViewById(R.id.mEdtAlterName);
                 final Button mBtnAbrogate = v.findViewById(R.id.mBtnAbrogate);//"取消"按钮
-                final Button mBtnAffirm = v.findViewById(R.id.mBtnAffirm);//"确认"按钮
+                final Button mBtnAffirm = v.findViewById(mBtnAffirmName);//"确认"按钮
                 mEdtAlterName.setText(mTxtEquipmentname.getText().toString());
                 final AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEquipmentDetails.this).setView(view);
                 builder.setView(v);
@@ -251,33 +265,46 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         /**
          * 删除操作
          */
+//        mTxtDelete.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                View v = LayoutInflater.from(ActivityEquipmentDetails.this).inflate(R.layout.dialog_equipment_details_delete, null);
+//                final Button mBtnAbrogate = v.findViewById(R.id.mBtnAbrogate);//"取消"按钮
+//                final Button mBtnDelete = v.findViewById(R.id.mBtnDelete);//"删除"按钮
+//                final AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEquipmentDetails.this).setView(view);
+//                builder.setView(v);
+//                final AlertDialog alertDialog = builder.create();
+//                v.setBackgroundResource(R.drawable.button_shape_white);
+//                mBtnDelete.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        //删除操作
+//
+//                        alertDialog.dismiss();
+//                        Toast.makeText(ActivityEquipmentDetails.this, "删除成功", Toast.LENGTH_LONG).show();
+//                    }
+//                });
+//                mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View view) {
+//                        alertDialog.dismiss();
+//                    }
+//                });
+//                alertDialog.show();
+//                popWindow.dismiss();
+//            }
+//        });
         mTxtDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                View v = LayoutInflater.from(ActivityEquipmentDetails.this).inflate(R.layout.dialog_equipment_details_delete, null);
-                final Button mBtnAbrogate = v.findViewById(R.id.mBtnAbrogate);//"取消"按钮
-                final Button mBtnDelete = v.findViewById(R.id.mBtnDelete);//"删除"按钮
-                final AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEquipmentDetails.this).setView(view);
-                builder.setView(v);
-                final AlertDialog alertDialog = builder.create();
-                v.setBackgroundResource(R.drawable.button_shape_white);
-                mBtnDelete.setOnClickListener(new View.OnClickListener() {
+                mHandler.postDelayed(new Runnable() {
                     @Override
-                    public void onClick(View view) {
-                        //删除操作
+                    public void run() {
+                        WindowUtils.showPopupWindow(ActivityEquipmentDetails.this);
 
-                        alertDialog.dismiss();
-                        Toast.makeText(ActivityEquipmentDetails.this, "删除成功", Toast.LENGTH_LONG).show();
+                        popWindow.dismiss();
                     }
-                });
-                mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        alertDialog.dismiss();
-                    }
-                });
-                alertDialog.show();
-                popWindow.dismiss();
+                },100);
             }
         });
         /**
@@ -290,6 +317,8 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
             }
         });
     }
+
+
 
     /**
      * 设置添加屏幕的背景透明度

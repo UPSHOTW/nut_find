@@ -13,6 +13,7 @@ import android.widget.RelativeLayout;
 import com.example.make1.find.activity.ActivityFriends;
 import com.example.make1.find.activity.ActivityLogin;
 import com.example.make1.find.activity.ActivityMoreAbout;
+import com.example.make1.find.activity.ActivityMoreDisturb;
 import com.example.make1.find.activity.ActivityMoreMessage;
 import com.example.make1.find.activity.ActivityMoreOpinion;
 import com.example.make1.find.activity.ActivityMoreQuestion;
@@ -20,7 +21,6 @@ import com.example.make1.find.activity.ActivityMoreShopping;
 import com.example.make1.find.activity.ActivityMoreStory;
 import com.example.make1.find.activity.ActivityUser;
 import com.example.make1.find.R;
-import com.example.make1.find.activity.MoreDisturbActivity;
 import com.maiml.library.BaseItemLayout;
 
 
@@ -152,7 +152,7 @@ public class FragmentMore extends Fragment implements View.OnClickListener {
                 startActivity(intent);
                 break;
             case R.id.rltDisturb:
-                intent = new Intent(getActivity(), MoreDisturbActivity.class);
+                intent = new Intent(getActivity(), ActivityMoreDisturb.class);
                 startActivity(intent);
                 break;
             default:
@@ -168,50 +168,57 @@ public class FragmentMore extends Fragment implements View.OnClickListener {
             android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.commit();
         }
-        if (resultCode == 2) { //判断请求码
+       else if (resultCode == 2) { //判断请求码
             ActivityFriends activityFriends = (ActivityFriends) getActivity();
             android.app.FragmentManager fragmentManager = activityFriends.getFragmentManager();
             android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.commit();
 
         }
-        if (resultCode == 3) { //判断请求码
+       else if (resultCode == 3) { //判断请求码
             ActivityMoreQuestion activityMoreQuestion = (ActivityMoreQuestion) getActivity();
             android.app.FragmentManager fragmentManager = activityMoreQuestion.getFragmentManager();
             android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.commit();
 
         }
-        if (resultCode == 4) { //判断请求码
+       else if (resultCode == 4) { //判断请求码
             ActivityMoreStory activityMoreStory = (ActivityMoreStory) getActivity();
             android.app.FragmentManager fragmentManager = activityMoreStory.getFragmentManager();
             android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.commit();
         }
-        if (resultCode == 5) { //判断请求码
+      else   if (resultCode == 5) { //判断请求码
             ActivityMoreShopping activityMoreShopping = (ActivityMoreShopping) getActivity();
             android.app.FragmentManager fragmentManager = activityMoreShopping.getFragmentManager();
             android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.commit();
         }
-        if (resultCode == 6) { //判断请求码
+       else if (resultCode == 6) { //判断请求码
             ActivityMoreOpinion activityMoreOpinion = (ActivityMoreOpinion) getActivity();
             android.app.FragmentManager fragmentManager = activityMoreOpinion.getFragmentManager();
             android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.commit();
         }
-        if (resultCode == 7) { //判断请求码
+       else if (resultCode == 7) { //判断请求码
             ActivityMoreAbout activityMoreAbout = (ActivityMoreAbout) getActivity();
             android.app.FragmentManager fragmentManager = activityMoreAbout.getFragmentManager();
             android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.commit();
         }
-        if (resultCode == 8) { //判断请求码
+       else if (resultCode == 8) { //判断请求码
             ActivityMoreMessage activityMoreMessage = (ActivityMoreMessage) getActivity();
             android.app.FragmentManager fragmentManager = activityMoreMessage.getFragmentManager();
             android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
             fragmentTransaction.commit();
         }
+        else if (requestCode == 9){
+            ActivityMoreDisturb activityMoreDisturb = (ActivityMoreDisturb)getActivity();
+            android.app.FragmentManager fragmentManager = activityMoreDisturb.getFragmentManager();
+            android.app.FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+            fragmentTransaction.commit();
+        }
+
 
     }
 }
