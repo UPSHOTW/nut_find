@@ -4,44 +4,46 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="10">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="56dp"
-        android:background="@color/white">
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@color/white"
+        android:paddingLeft="@dimen/about_spacing_20"
+        android:paddingRight="@dimen/about_spacing_20">
 
         <ImageButton
             android:id="@+id/mImgBack"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:layout_marginLeft="20dp"
             android:background="@mipmap/img_actionbar_back" />
 
         <TextView
             android:id="@+id/mTxtEquipmentname"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:gravity="center"
             android:text="@string/remind"
-            android:textSize="22sp" />
+            android:textSize="@dimen/title_size" />
 
     </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/mRltNotifySound"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/about_spacing_20"
+        android:layout_weight="1"
         android:background="@drawable/border"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:paddingLeft="@dimen/about_spacing_20"
+        android:paddingRight="@dimen/about_spacing_20">
 
         <TextView
             android:id="@+id/mTxtNotifySound"
@@ -55,12 +57,12 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/imageView1"
-            android:layout_toStartOf="@+id/imageView1"
+            android:layout_toLeftOf="@+id/imgSound"
+            android:layout_toStartOf="@+id/imgSound"
             android:hint="@string/voice" />
 
         <ImageView
-            android:id="@+id/imageView1"
+            android:id="@+id/imgSound"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -71,12 +73,13 @@
 
     <RelativeLayout
         android:id="@+id/mRltWarnTime"
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@drawable/border"
         android:onClick="WarnTime"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:paddingLeft="@dimen/about_spacing_20"
+        android:paddingRight="@dimen/about_spacing_20">
 
         <TextView
             android:id="@+id/mTxtWarnTime"
@@ -91,13 +94,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:layout_toLeftOf="@+id/imageView2"
-            android:layout_toStartOf="@+id/imageView2"
+            android:layout_toLeftOf="@+id/imgTime"
+            android:layout_toStartOf="@+id/imgTime"
             android:gravity="right"
             android:hint="@string/warntime" />
 
         <ImageView
-            android:id="@+id/imageView2"
+            android:id="@+id/imgTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
@@ -108,20 +111,21 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/about_spacing_20"
+        android:layout_marginRight="@dimen/about_spacing_20"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
         android:text="@string/break_explain" />
 
 
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@drawable/border"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:paddingLeft="@dimen/about_spacing_20"
+        android:paddingRight="@dimen/about_spacing_20">
 
         <TextView
             android:id="@+id/mTxtRepetition"
@@ -148,18 +152,20 @@
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/about_spacing_20"
+        android:layout_marginRight="@dimen/about_spacing_20"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
         android:text="@string/repetition_explain" />
+
     <RelativeLayout
         android:layout_width="wrap_content"
-        android:layout_height="40dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+        android:layout_weight="1"
         android:background="@drawable/border"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp">
+        android:paddingLeft="@dimen/about_spacing_20"
+        android:paddingRight="@dimen/about_spacing_20">
 
         <TextView
             android:id="@+id/mTxtAnew"
@@ -183,11 +189,13 @@
             android:textOn="" />
 
     </RelativeLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="0dp"
+        android:layout_marginLeft="@dimen/about_spacing_20"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
         android:text="@string/anew_explain" />
+
 </LinearLayout>

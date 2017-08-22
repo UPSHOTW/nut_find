@@ -2,26 +2,42 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.make1.find">
 
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />    
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />    
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />    
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />    
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />    
-    <uses-permission android:name="android.permission.READ_PHONE_STATE" />    
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />    
-    <uses-permission android:name="android.permission.INTERNET" />    
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />   
-    <uses-permission android:name="android.permission.READ_LOGS" />   
-    <uses-permission android:name="android.permission.VIBRATE" />    
-    <uses-permission android:name="android.permission.WAKE_LOCK" />    
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+        
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+        
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+        
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+        
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+        
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+        
+    <uses-permission android:name="android.permission.INTERNET" />
+        
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+       
+    <uses-permission android:name="android.permission.READ_LOGS" />
+       
+    <uses-permission android:name="android.permission.VIBRATE" />
+        
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+        
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+
     <application
         android:name=".app.MyApplication"
         android:allowBackup="true"
@@ -29,21 +45,22 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <!--设置AK-->
+        android:theme="@style/AppTheme"
+        >
+
+        <!-- 设置AK -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="u91zhj12Vw0mom0TmT2my2S8nmAXHmSQ" />
 
         <activity
-            android:name="com.example.make1.find.activity.ActivityBoundEquipment"
+            android:name=".activity.ActivityBoundEquipment"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".activity.MainTab" />
         <activity android:name=".activity.ActivityEquipmentDetailsRemind" />
@@ -61,25 +78,30 @@
         <activity android:name=".activity.ActivityForget" />
         <activity android:name=".activity.ActivityMoreUserEmail" />
         <activity android:name=".activity.ActivityMoreUserPhone" />
-        <activity android:name=".activity.ActivityBoundExplain"/>
-        <activity android:name=".activity.ActivityFriendsAddBound"/>
-        <activity android:name=".activity.ActivityBoundFound"/>
-        <activity android:name=".activity.ActivityUser"/>
-        <activity android:name=".activity.ActivityEquipmentDetails"/>
-        <activity android:name=".activity.ActivityDisturbStatment"/>
-        <activity android:name=".activity.ActivityEquipmentLocation"/>
-        <activity android:name=".activity.ActivityEquipmentFindArea"/>
-        <activity android:name=".activity.ActivityAddition"/>
-        <activity android:name=".activity.ActivityWelcome"/>
-        <activity android:name=".activity.ScanBaseActivity"/>
-        <activity android:name=".activity.ActivityBoundConnecting"/>
-        <activity android:name=".activity.ActivityMoreDisturb"/>
-
-
+        <activity android:name=".activity.ActivityBoundExplain" />
+        <activity android:name=".activity.ActivityFriendsAddBound" />
+        <activity android:name=".activity.ActivityBoundFound" />
+        <activity android:name=".activity.ActivityUser" />
+        <activity android:name=".activity.ActivityEquipmentDetails" />
+        <activity android:name=".activity.ActivityDisturbStatment" />
+        <activity android:name=".activity.ActivityEquipmentLocation" />
+        <activity android:name=".activity.ActivityEquipmentFindArea" />
+        <activity android:name=".activity.ActivityAddition" />
+        <activity android:name=".activity.ActivityWelcome" />
+        <activity android:name=".activity.ScanBaseActivity" />
+        <activity android:name=".activity.ActivityBoundConnecting" />
+        <activity android:name=".activity.ActivityMoreDisturb" />
+        <activity android:name=".activity.ActivityDialogBoundDelete"/>
 
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" />
+       <service
+            android:name=".utils.MyWindowUtilsService"
+            android:enabled="true"
+            android:exported="true">
+       </service>
     </application>
+
 </manifest>
