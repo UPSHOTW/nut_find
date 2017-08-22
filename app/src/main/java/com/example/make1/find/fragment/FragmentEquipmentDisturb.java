@@ -15,7 +15,7 @@ import com.example.make1.find.activity.ActivityEquipmentDetailsRemind;
 
 
 /**
- *
+ *设备详情中的防丢模式页面
  */
 public class FragmentEquipmentDisturb extends Fragment {
     private View view;

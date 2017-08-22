@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -34,23 +33,19 @@ import android.widget.Toast;
 
 import com.example.make1.find.R;
 import com.example.make1.find.fragment.FragmentEquipmentDetails;
-import com.example.make1.find.utils.PickerView;
+import com.example.make1.find.utils.MyWindowUtilsService;
 import com.example.make1.find.utils.ShearRoundness;
-import com.example.make1.find.utils.WindowUtils;
 
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
-import java.util.ArrayList;
 import java.util.Timer;
-import java.util.TimerTask;
+
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-import static com.example.make1.find.R.id.mBtnAffirm;
 import static com.example.make1.find.R.id.mBtnAffirmName;
-import static com.example.make1.find.R.string.warntime;
 import static com.example.make1.find.constant.PhotographParameter.IMAGE_UNSPECIFIED;
 import static com.example.make1.find.constant.PhotographParameter.NONE;
 import static com.example.make1.find.constant.PhotographParameter.PHOTO_GRAPH;
@@ -74,7 +69,9 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
     ImageView ImgDistance;
     @BindView(R.id.mImgUser)
     ImageView mImgUser;
-    private Context mContext;
+    @BindView(R.id.mTxtBoundState)
+    TextView mTxtBoundState;
+    private Context mContext = ActivityEquipmentDetails.this;
     Intent intent;
     boolean isfre = true;
     private Handler mHandler = new Handler();
@@ -85,25 +82,28 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         super.onCreate(savedInstanceState);
         setContentView(R.layout.equipment_details);
         ButterKnife.bind(this);
-        mContext = ActivityEquipmentDetails.this;
         //新页面接收数据
         Bundle bundle = this.getIntent().getExtras();
-        //接收name值
+        //接收EquipmentName值
         String equipmentName = bundle.getString("equipmentName");
-        Log.i("获取到的name值为", equipmentName);
+        Log.i("获取到的name值为---------->", equipmentName);
         mTxtEquipmentname.setText(equipmentName);
         //解决7.0版本的拍照问题
         StrictMode.VmPolicy.Builder Vbuilder = new StrictMode.VmPolicy.Builder();
         StrictMode.setVmPolicy(Vbuilder.build());
         Vbuilder.detectFileUriExposure();
-        initView();
+
         initListener();
         initData();
         fre();
         mMyTimer = new Timer();
-
+        mTxtBoundState.setText(R.string.bound_break);
     }
 
+    /**
+     * 判断是否是第一次进入此页面
+     */
+    // TODO: 2017/8/22判断有误 
     private void fre() {
         if (isfre) {
             View view = LayoutInflater.from(ActivityEquipmentDetails.this).inflate(R.layout.dialog_bound_equipment, null);
@@ -131,21 +131,15 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
     }
 
 
-    private void initView() {
-
-    }
-
     private void initListener() {
         mImgDetailsMore.setOnClickListener(this);
         mImgBack.setOnClickListener(this);
         mBtnLossStatement.setOnClickListener(this);
         ImgDistance.setOnClickListener(this);
-
     }
 
     private void initData() {
         addFragmentToStack(new FragmentEquipmentDetails());
-
     }
 
     private void addFragmentToStack(Fragment fragment) {
@@ -180,8 +174,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
      * @param v
      */
     private void initPopWindow(View v) {
-        View view = LayoutInflater.from(mContext).inflate(R.layout.equipment_details_more_item, null, false);//菜单具体内容布局文件
-        //内容布局控件
+        final View view = LayoutInflater.from(mContext).inflate(R.layout.equipment_details_more_item, null, false);//菜单具体内容布局文件
         TextView mTxtAlterImg = view.findViewById(R.id.mTxtAlterImg);
         TextView mTxtAlterName = view.findViewById(R.id.mTxtAlterName);
         TextView mTxtDelete = view.findViewById(R.id.mTxtDelete);
@@ -196,19 +189,14 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         popWindow.setTouchInterceptor(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                // lytEquipmentDetails.setBackgroundDrawable(new ColorDrawable(0x7DC0C0C0));
                 return false;
                 // 这里如果返回true的话，touch事件将被拦截
                 // 拦截后 PopupWindow的onTouchEvent不被调用，这样点击外部区域无法dismiss
             }
         });
         setBackgroundAlpha(0.5f);//设置屏幕透明度
-        // popWindow.setBackgroundDrawable(new BitmapDrawable());    //要为popWindow设置一个背景才有效
-
-
         //设置popupWindow显示的位置，参数依次是参照View，x轴的偏移量，y轴的偏移量
-        // popWindow.showAsDropDown(v, 0,820);
-        //显示在根布局的底部
+        //显示在根布局的底部BOTTOM
         popWindow.showAtLocation(view, Gravity.BOTTOM | Gravity.LEFT, 0, 0);
         //在退出时popupWindow时，需要恢复屏幕原有透明度
         popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -249,7 +237,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
                     public void onClick(View view) {
                         mTxtEquipmentname.setText(mEdtAlterName.getText().toString());
                         alertDialog.dismiss();
-                        Toast.makeText(ActivityEquipmentDetails.this, "修改成功", Toast.LENGTH_LONG).show();
+                        Toast.makeText(ActivityEquipmentDetails.this, R.string.change_success, Toast.LENGTH_LONG).show();
                     }
                 });
                 mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
@@ -265,48 +253,57 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         /**
          * 删除操作
          */
-//        mTxtDelete.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                View v = LayoutInflater.from(ActivityEquipmentDetails.this).inflate(R.layout.dialog_equipment_details_delete, null);
-//                final Button mBtnAbrogate = v.findViewById(R.id.mBtnAbrogate);//"取消"按钮
-//                final Button mBtnDelete = v.findViewById(R.id.mBtnDelete);//"删除"按钮
-//                final AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEquipmentDetails.this).setView(view);
-//                builder.setView(v);
-//                final AlertDialog alertDialog = builder.create();
-//                v.setBackgroundResource(R.drawable.button_shape_white);
-//                mBtnDelete.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        //删除操作
-//
-//                        alertDialog.dismiss();
-//                        Toast.makeText(ActivityEquipmentDetails.this, "删除成功", Toast.LENGTH_LONG).show();
-//                    }
-//                });
-//                mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View view) {
-//                        alertDialog.dismiss();
-//                    }
-//                });
-//                alertDialog.show();
-//                popWindow.dismiss();
-//            }
-//        });
+        // TODO: 2017/8/22 加入if判断后点击事件不执行 
         mTxtDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mHandler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        WindowUtils.showPopupWindow(ActivityEquipmentDetails.this);
+                //判断设备的连接状态
+                if (mTxtBoundState.equals(getString(R.string.bound_success))) {
+                    View v = LayoutInflater.from(ActivityEquipmentDetails.this).inflate(R.layout.dialog_equipment_details_delete, null);
+                    final Button mBtnAbrogate = v.findViewById(R.id.mBtnAbrogate);//"取消"按钮
+                    final Button mBtnDelete = v.findViewById(R.id.mBtnDelete);//"删除"按钮
+                    final AlertDialog.Builder builder = new AlertDialog.Builder(ActivityEquipmentDetails.this).setView(view);
+                    builder.setView(v);
+                    final AlertDialog alertDialog = builder.create();
+                    v.setBackgroundResource(R.drawable.button_shape_white);
+                    mBtnDelete.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            //删除操作
+                            // TODO: 2017/8/22
+                            alertDialog.dismiss();
+                            Toast.makeText(ActivityEquipmentDetails.this, R.string.delete_success, Toast.LENGTH_LONG).show();
+                        }
+                    });
+                    mBtnAbrogate.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            alertDialog.dismiss();
+                        }
+                    });
+                    alertDialog.show();
+                    popWindow.dismiss();
+                } else if (mTxtBoundState.equals(getString(R.string.bound_break))) {
+                    mHandler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            // TODO: 2017/8/22 未实现
+                            //调用Service，使用WindowManager实现弹出框
+                            //intent = new Intent(mContext, MyWindowUtilsService.class);
+                            //mContext.startService(intent);
 
-                        popWindow.dismiss();
-                    }
-                },100);
+
+                            //使用页面跳转的方式，在另一页面实现倒计时框
+                            intent = new Intent(mContext, ActivityDialogBoundDelete.class);
+                            startActivity(intent);
+                            Log.i("q", "mTxtDelete.setOnClickListener:");
+                            popWindow.dismiss();
+                        }
+                    }, 100);
+                }
             }
         });
+
         /**
          * 取消操作
          */
@@ -317,7 +314,6 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
             }
         });
     }
-
 
 
     /**
@@ -333,13 +329,12 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
     }
 
     /**
-     * 使用PopWindow实现菜单从屏幕底部弹出
+     * 使用PopWindow实现菜单从屏幕底部弹出（更换头像）
      *
      * @param v
      */
     private void initPopWindowPicture(View v) {
         View view = LayoutInflater.from(mContext).inflate(R.layout.user_change_picture_item, null, false);//菜单具体内容布局文件
-        //内容布局控件
         TextView mTxtPhotograph = view.findViewById(R.id.mTxtPhotograph);//拍照
         TextView mTxtAlbum = view.findViewById(R.id.mTxtAlbum);//从相册中选取
         TextView mTxtCancel = view.findViewById(R.id.mTxtCancel);
@@ -358,7 +353,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
         setBackgroundAlpha(0.5f);//设置屏幕透明度
         //设置popupWindow显示的位置，参数依次是参照View，x轴的偏移量，y轴的偏移量
         // popWindow.showAsDropDown(v, 0,820);
-        //显示在根布局的底部
+        //显示在根布局的底部BOTTOM
         popWindow.showAtLocation(view, Gravity.BOTTOM | Gravity.LEFT, 0, 0);
         //在退出时popupWindow时，需要恢复屏幕原有透明度
         popWindow.setOnDismissListener(new PopupWindow.OnDismissListener() {
@@ -447,6 +442,7 @@ public class ActivityEquipmentDetails extends FragmentActivity implements View.O
     }
 
     /**
+     * 图片剪切
      * @param uri
      */
     public void startPhotoZoom(Uri uri) {

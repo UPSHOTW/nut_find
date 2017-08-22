@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ *设备详情页面中的导航栏
  */
 public class FragmentEquipmentDetails extends Fragment {
     private View view;

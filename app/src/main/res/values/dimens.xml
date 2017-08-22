@@ -4,4 +4,5 @@
     <dimen name="subtitle_size">16sp</dimen>
     <dimen name="about_spacing_20">20dp</dimen>
     <dimen name="distance_five">5dp</dimen>
+    <dimen name="view_height">0.5dp</dimen>
 </resources>

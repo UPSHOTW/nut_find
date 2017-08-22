@@ -2,60 +2,68 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/rlt01"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     android:background="@color/white"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:weightSum="4">
 
     <View
-
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="0dp"
+        android:layout_height="@dimen/view_height"
         android:background="@color/black" />
 
     <TextView
         android:id="@+id/mTxtAlterImg"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/distance_five"
+        android:layout_marginTop="@dimen/distance_five"
+        android:layout_weight="1"
         android:gravity="center"
         android:text="@string/alterImg" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="0dp"
+        android:layout_height="@dimen/view_height"
         android:background="@color/black" />
 
     <TextView
         android:id="@+id/mTxtAlterName"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/distance_five"
+        android:layout_marginTop="@dimen/distance_five"
+        android:layout_weight="1"
         android:gravity="center"
         android:text="@string/alterName" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="0dp"
+        android:layout_height="@dimen/view_height"
         android:background="@color/black" />
 
     <TextView
         android:id="@+id/mTxtDelete"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/distance_five"
+        android:layout_marginTop="@dimen/distance_five"
+        android:layout_weight="1"
         android:gravity="center"
         android:text="@string/delete" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginTop="0dp"
+        android:layout_height="@dimen/view_height"
         android:background="@color/black" />
 
     <TextView
         android:id="@+id/mTxtCancel"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="@dimen/distance_five"
+        android:layout_marginTop="@dimen/distance_five"
+        android:layout_weight="1"
         android:gravity="center"
         android:text="@string/cancel"
         android:textColor="@color/red" />
