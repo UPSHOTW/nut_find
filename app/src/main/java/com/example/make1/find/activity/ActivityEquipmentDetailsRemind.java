@@ -22,6 +22,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
+import static com.example.make1.find.R.string.can;
 import static com.example.make1.find.R.string.warntime;
 
 /**
@@ -35,6 +36,10 @@ public class ActivityEquipmentDetailsRemind extends AppCompatActivity implements
     RelativeLayout mRltWarnTime;
     @BindView(R.id.mTxtTime)
     TextView mTxtTime;
+    @BindView(R.id.mRltNotifySound)
+    RelativeLayout mRltNotifySound;
+    @BindView(R.id.mTxtVoice)
+    TextView mTxtVoice;
     String time;
     PickerView pickerView;
     Intent intent;
@@ -52,6 +57,7 @@ public class ActivityEquipmentDetailsRemind extends AppCompatActivity implements
         super.onResume();
         mImgBack.setOnClickListener(this);
         mRltWarnTime.setOnClickListener(this);
+        mRltNotifySound.setOnClickListener(this);
 
     }
 
@@ -64,6 +70,11 @@ public class ActivityEquipmentDetailsRemind extends AppCompatActivity implements
                 break;
             case R.id.mRltWarnTime:
                 WarnTime();
+                break;
+            case R.id.mRltNotifySound:
+                intent = new Intent(ActivityEquipmentDetailsRemind.this, ActivityRemindSound.class);
+                startActivity(intent);
+                Log.i("q", " mRltNotifySound.setOnClickListener-------->");
                 break;
             default:
         }
@@ -100,7 +111,7 @@ public class ActivityEquipmentDetailsRemind extends AppCompatActivity implements
         mBtnAffirm.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mTxtTime.setText(time.toString()+"分钟");
+                mTxtTime.setText(time.toString() + "分钟");
                 alertDialog.dismiss();
             }
         });

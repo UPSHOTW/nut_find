@@ -160,5 +160,7 @@
     <string name="bound_break">连接断开</string>
     <string name="delete_success">删除成功</string>
     <string name="change_success">修改成功</string>
+    <string name="back">返回</string>
+    <string name="save">保存</string>
 
 </resources>
